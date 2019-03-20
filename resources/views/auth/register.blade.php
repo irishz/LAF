@@ -10,22 +10,22 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        {{--  name  --}}
+                        {{--  First Name  --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="f_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="f_name" type="text" class="form-control{{ $errors->has('f_name') ? ' is-invalid' : '' }}" name="f_name" value="{{ old('f_name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('f_name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('f_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        {{--  prename  --}}
+                        {{--  Prename  --}}
                         <div class="form-group row">
                             <label for="prename" class="col-md-4 col-form-label text-md-right">{{ __('Prename') }}</label>
 
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        {{--  employee id  --}}
+                        {{--  Employee id  --}}
                         <div class="form-group row">
                             <label for="employee_id" class="col-md-4 col-form-label text-md-right">{{ __('Employee id') }}</label>
 
@@ -54,7 +54,7 @@
                             </div>
                         </div>
 
-                        {{--  email  --}}
+                        {{--  E-Mail Address  --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -69,7 +69,7 @@
                             </div>
                         </div>
 
-                        {{--  password  --}}
+                        {{--  Password  --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
