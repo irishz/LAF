@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        {{--  name  --}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -25,6 +25,21 @@
                             </div>
                         </div>
 
+                        {{--  prename  --}}
+                        <div class="form-group row">
+                            <label for="prename" class="col-md-4 col-form-label text-md-right">{{ __('Prename') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="prename" class="form-control" name="prename">
+                                    <option value=""></option>
+                                    <option value="mr">Mr.</option>
+                                    <option value="miss">Miss</option>
+                                    <option value="mrs">Mrs.</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {{--  employee id  --}}
                         <div class="form-group row">
                             <label for="employee_id" class="col-md-4 col-form-label text-md-right">{{ __('Employee id') }}</label>
 
@@ -39,6 +54,7 @@
                             </div>
                         </div>
 
+                        {{--  email  --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -53,6 +69,7 @@
                             </div>
                         </div>
 
+                        {{--  password  --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -67,6 +84,7 @@
                             </div>
                         </div>
 
+                        {{--  password confirm  --}}
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
