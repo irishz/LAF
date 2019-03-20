@@ -73,9 +73,9 @@
                             <div class="col-md-6">
                                 <select id="department" class="form-control" name="department">
                                     <option value=""></option>
-                                    <option value="itd">ITD</option>
-                                    <option value="acc">ACC</option>
-                                    <option value="cla">CLA</option>
+                                    @foreach ($department as $dept)
+                                        <option value={{$dept}}>{{$dept}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
