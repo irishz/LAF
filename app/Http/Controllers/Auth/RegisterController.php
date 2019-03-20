@@ -49,7 +49,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'employee_id' => ['required', 'string', 'max:255','unique:users'],
+            'user_id' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'position' => $data['position'],
             'department' => $data['department'],
             'section' => $data['section'],
-            'employee_id' => $data['employee_id'],
+            'user_id' => $data['user_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'type' => User::DEFAULT_TYPE,
@@ -85,6 +85,7 @@ class RegisterController extends Controller
         'แผนกบริการปฐมภูมิ','แผนกเภสัชกรรม','แผนกกายภาพบำบัด','แผนกสร้างเสริมสุขภาพ','แผนกจัดซื้อ-พัสดุ','แผนกรังสีวิทยา','ฝ่ายขายและการตลาด',
         'ศูนย์จัดการยุทธศาสตร์องค์กร','หน่วยเครื่องมือแพทย์','แผนกรับส่งผู้ป่วย','แผนกบริหารทรัพยากรทางการแพทย์','แผนกยานพาหนะ','หน่วยรปภ.','หน่วย OCC'
         ];
+
 
         return view('auth.register',compact('department'));
     }

@@ -15,6 +15,10 @@ class CreateFormTable extends Migration
     {
         Schema::create('form', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user_id');
+            $table->boolean('approved')->nullable();
+            $table->string('approve_by')->nullable();
+            $table->dateTime('approve_datetime')->nullable();
             $table->timestamps();
         });
     }

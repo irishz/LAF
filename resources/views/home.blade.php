@@ -15,6 +15,15 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    Welcome K.{{ Auth::user()->f_name }} id={{ Auth::user()->user_id }}
+
+                    @foreach ($forms as $form)
+                        <li>{{ $form->form_id }}</li>
+                        <li>{{ $form->user_id }}</li>
+                        <li>{{ $form->approved }}</li>
+                        <li>{{ $form->approve_by }}</li>
+                    @endforeach
                 </div>
             </div>
         </div>

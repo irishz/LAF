@@ -12,14 +12,14 @@
                         @csrf
                         {{--  Employee id  --}}
                         <div class="form-group row">
-                            <label for="employee_id" class="col-md-4 col-form-label text-md-right">{{ __('Employee id') }}</label>
+                            <label for="user_id" class="col-md-4 col-form-label text-md-right">{{ __('Employee id') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{ old('employee_id') }}" required>
+                                <input id="user_id" type="text" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" value="{{ old('user_id') }}" required>
                         
-                                @if ($errors->has('employee_id'))
+                                @if ($errors->has('user_id'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('employee_id') }}</strong>
+                                        <strong>{{ $errors->first('user_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
