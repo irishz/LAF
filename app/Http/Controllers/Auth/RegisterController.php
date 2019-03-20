@@ -65,11 +65,21 @@ class RegisterController extends Controller
     {
         return User::create([
             'f_name' => $data['f_name'],
+            'l_name' => $data['l_name'],
             'prename' => $data['prename'],
+            'position' => $data['position'],
+            'department' => $data['department'],
+            'section' => $data['section'],
             'employee_id' => $data['employee_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'type' => User::DEFAULT_TYPE,
         ]);
+    }
+
+    public function index(){
+        
+
+        return view('auth.register');
     }
 }

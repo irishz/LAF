@@ -20,6 +20,7 @@ Auth::routes();
 //Route for normal user
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/form', 'FormController@index');
 });
 
 //Route for admin
