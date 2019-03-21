@@ -13,4 +13,9 @@ class Form extends Model
     
         return $this->belongTo(User::class,'user_id');
     }
+
+    public function build()
+    {
+        return $this->markdown('mail.send-approve');
+    }
 }
