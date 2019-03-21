@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Form;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +36,7 @@ class HomeController extends Controller
         $user_id = Auth::user()->user_id;
 
         $forms = User::find($user_id)->forms;
-        dd($forms);
+
         return view('home',compact('forms'));
     }
 }

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Form extends Model
 {
     protected $table = 'form';
-
+    
     public function users(){
     
-        return $this->belongTo(User::class);
+        return $this->belongTo(User::class,'user_id');
     }
 }
