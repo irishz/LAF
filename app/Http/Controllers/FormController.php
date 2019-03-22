@@ -112,6 +112,8 @@ class FormController extends Controller
         $upd_form->approve_by = Auth::user()->f_name;
         $upd_form->approve_datetime = Carbon::now()->toDateTimeString();
         $upd_form->save();
+
+        return redirect('/admin/dashboard');
     }
 
     /**

@@ -30,9 +30,17 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    Home
-                </a>
+                @if (auth()->check())
+                    @if (auth()->user()->isAdmin())
+                        <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
+                            Admin Home
+                        </a>
+                    @else
+                        <a class="navbar-brand" href="{{ url('/home') }}">
+                            Home
+                        </a>
+                    @endif
+                @endif
                 <a class="navbar-brand" href="{{ url('/form') }}">
                     Form
                 </a>
