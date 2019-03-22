@@ -11,15 +11,16 @@ class SendApprove extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $approve_mail;
+    public $user,$form;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($approve_mail)
+    public function __construct($user,$form)
     {
-        $this->approve_mail = $approve_mail;
+        $this->user = $user;
+        $this->form = $form;
     }
 
     /**
@@ -29,6 +30,8 @@ class SendApprove extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.send-approve');
+        $subject = 'ใบลา';
+
+        return $this->subject($subject)->markdown('mail.send-approve');
     }
 }

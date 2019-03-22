@@ -100,13 +100,13 @@
                             <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
 
                             <div class="col-md-6">
-                                    <select id="position" class="form-control" name="position">
-                                        <option value=""></option>
-                                        @foreach ($position as $pos)
-                                            <option value={{$pos}}>{{$pos}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <select id="position" class="form-control" name="position">
+                                    <option value=""></option>
+                                    @foreach ($position as $pos)
+                                        <option value={{$pos}}>{{$pos}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         
                         {{--  E-Mail Address  --}}

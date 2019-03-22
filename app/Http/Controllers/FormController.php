@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Form;
 use App\Mail\SendApprove;
 use Illuminate\Http\Request;
@@ -12,19 +13,9 @@ use Carbon\Carbon;
 class FormController extends Controller
 {
     public function mail(Request $request){
-        // dd($request->department);
-        $mailto = 'ssh.itd@suksawathospital.com';
-        $comment = 'some comment';
-        if (Auth::user()->department === $request->department) {
-            // dd('right department',Auth::user()->department);
-            Mail::to($mailto)->send(
-                new SendApprove($comment)
-            );
-            return 'we already send approve to'.' '.$mailto;
-        }else{
-            dd('wrong department',Auth::user()->department);
-        }
+        $send = Form::all();
         
+        $send->notify(new SendApprove());
     }
 
     /**
@@ -62,13 +53,21 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->user_id;
+        $user = User::find($user_id);
+
         $store = new Form;
-        $store->user_id = Auth::user()->user_id;
+        $store->user_id = $user_id;
         $store->leave_type = $request->leave_type;
         $store->leave_cause = $request->leave_cause;
         $store->number_date_leave = $request->number_date_leave;
         $store->date_leave = $request->date_leave;
         $store->save();
+
+        $form = Form::find($store->id);
+
+        // send approve mail to approver
+        Mail::to("receiver@example.com")->send(new SendApprove($user,$form));
 
         return redirect('home');
     }

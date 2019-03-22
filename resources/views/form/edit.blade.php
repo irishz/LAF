@@ -17,7 +17,10 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="approve">Approve</label>
-            <input type="text" class="form-control" id="approve" name="approve">
+            <select id="approve" class="form-control" name="approve">
+                <option value="1">Approve</option>
+                <option value="0">Not Approve</option>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">
