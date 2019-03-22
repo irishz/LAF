@@ -16,7 +16,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <form method="POST" action="/form">
+            <form method="POST" action="/form" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="date_leave">1. วันที่ขอลาหยุด</label>
