@@ -7,6 +7,7 @@ use App\Mail\SendApprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class FormController extends Controller
 {
@@ -78,7 +79,7 @@ class FormController extends Controller
      * @param  \App\r  $r
      * @return \Illuminate\Http\Response
      */
-    public function show(r $r)
+    public function show()
     {
         //
     }
@@ -89,9 +90,11 @@ class FormController extends Controller
      * @param  \App\r  $r
      * @return \Illuminate\Http\Response
      */
-    public function edit(r $r)
+    public function edit($id)
     {
-        //
+        $users = Form::find($id);
+
+        return view('form.edit',compact('id','users'));
     }
 
     /**
@@ -101,9 +104,14 @@ class FormController extends Controller
      * @param  \App\r  $r
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, r $r)
+    public function update($id,Request $request)
     {
-        //
+        $upd_form = Form::find($id);
+
+        $upd_form->approved = request('approve');
+        $upd_form->approve_by = Auth::user()->f_name;
+        $upd_form->approve_datetime = Carbon::now()->toDateTimeString();
+        $upd_form->save();
     }
 
     /**

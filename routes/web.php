@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@show');
     Route::get('/form', 'FormController@index');
     Route::post('/form', 'FormController@store');
+    Route::get('/form/{id}/edit', 'FormController@edit');
+    Route::patch('/form/{id}', 'FormController@update');
 });
 
 //Route for admin

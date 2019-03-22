@@ -25,6 +25,7 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Employee ID</th>
+                <th scope="col">NO Leave Day</th>
                 <th scope="col">Approved</th>
                 <th scope="col">Approved By</th>
                 <th scope="col">Leave Date</th>
@@ -41,6 +42,7 @@
                     @endif
                         <th scope="row">1</th>
                         <td>{{ $form->user_id }}</td>
+                        <td>{{ $form->number_date_leave }}</td>
                         <td>{{ $form->approved}}</td>
                         <td>{{ $form->approve_by }}</td>
                         <td>{{ $form->created_at }}</td>

@@ -24,9 +24,10 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
+                <th scope="col">Form No.</th>
                 <th scope="col">Employee ID</th>
                 <th scope="col">Name</th>
+                <th scope="col">NO Leave Day</th>
                 <th scope="col">Approved</th>
                 <th scope="col">Approved By</th>
                 <th scope="col">Leave Date</th>
@@ -42,13 +43,14 @@
                     @else
                         <tr style="background-color:#f15959">
                     @endif
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $result->id }}</th>
                         <td>{{ $result->user_id }}</td>
                         <td>{{ $result->f_name.' '.$result->l_name }}</td>
+                        <td>{{ $result->number_date_leave }}</td>
                         <td>{{ $result->approved}}</td>
                         <td>{{ $result->approve_by }}</td>
                         <td>{{ $result->created_at }}</td>
-                        <td><a href="#" class="btn btn-info">Edit</a></td>
+                        <td><a href="/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>
