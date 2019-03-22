@@ -50,6 +50,10 @@
                     <label for="responsible_work">5. ผู้รับผิดชอบงานแทน(ชื่อผู้รับผิดชอบ-รายละเอียดงานที่ฝากดูแล-เบอร์โทรผู้รับผิดชอบแทน)</label>
                     <textarea class="form-control" id="responsible_work" name="responsible_work" required></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="attachment">6. เอกสารแนบ(ใบรับรองแพทย์ / เอกสารอื่นๆ ประกอบการลา) ถ้ามี</label>
+                    <input type="file" class="form-control" id="attachment" name="attachment">
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

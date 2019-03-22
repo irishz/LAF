@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use App\User;
 use App\Form;
 use App\Mail\SendApprove;
@@ -57,14 +58,25 @@ class FormController extends Controller
         $user = User::find($user_id);
 
         $store = new Form;
-        $store->user_id = $user_id;
-        $store->leave_type = $request->leave_type;
-        $store->leave_cause = $request->leave_cause;
-        $store->number_date_leave = $request->number_date_leave;
-        $store->date_leave = $request->date_leave;
-        $store->responsible_work = $request->responsible_work;
-        $store->save();
+        // $store->user_id = $user_id;
+        // $store->leave_type = $request->leave_type;
+        // $store->leave_cause = $request->leave_cause;
+        // $store->number_date_leave = $request->number_date_leave;
+        // $store->date_leave = $request->date_leave;
+        // $store->responsible_work = $request->responsible_work;
+        // $store->attachment = $request->attachment;
+        // cache the file
+    $file = $request->file('attachment');
+        dd($file);
+    // generate a new filename. getClientOriginalExtension() for the file extension
+    $filename = $store->id . $user_id;
 
+    // save to storage/app/photos as the new $filename
+    $path = $file->storeAs('public', $filename);
+
+    dd($path);
+        // $store->save();
+        dd('file stored');
         $form = Form::find($store->id);
 
         // send approve mail to approver
