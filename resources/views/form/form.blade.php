@@ -20,11 +20,11 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="date_leave">1. วันที่ขอลาหยุด</label>
-                    <input type="date" class="form-control" id="date_leave" name="date_leave">
+                    <input type="date" class="form-control" id="date_leave" name="date_leave" required>
                 </div>
                 <div class="form-group">
                     <label for="leave_type">2. ประเภทการลา</label><br>
-                    <input type="radio" name="leave_type" value="ลาป่วย">
+                    <input type="radio" name="leave_type" value="ลาป่วย" required>
                     <label>ลาป่วย</label><br>
                     <input type="radio" name="leave_type" value="ลากิจ">
                     <label>ลากิจ</label><br>
@@ -38,12 +38,17 @@
                     <label>อิ่นๆ</label>
                 </div>
                 <div class="form-group">
-                    <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>
-                    <input class="form-control" type="number" id="number_date_leave" name="number_date_leave">
+                    <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>>
+                    <input class="form-control" type="number" step="0.5" id="number_date_leave" name="number_date_leave" required>
+                    <label>กรณีลาครึ่งวันให้กรอก "<b>0.5</b>"</label>
                 </div>
                 <div class="form-group">
                     <label for="leave_cause">4. สาเหตุการลา</label>
-                    <textarea class="form-control" id="leave_cause" name="leave_cause"></textarea>
+                    <textarea class="form-control" id="leave_cause" name="leave_cause" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="responsible_work">5. ผู้รับผิดชอบงานแทน(ชื่อผู้รับผิดชอบ-รายละเอียดงานที่ฝากดูแล-เบอร์โทรผู้รับผิดชอบแทน)</label>
+                    <textarea class="form-control" id="responsible_work" name="responsible_work" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

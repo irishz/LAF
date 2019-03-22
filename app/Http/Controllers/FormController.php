@@ -62,6 +62,7 @@ class FormController extends Controller
         $store->leave_cause = $request->leave_cause;
         $store->number_date_leave = $request->number_date_leave;
         $store->date_leave = $request->date_leave;
+        $store->responsible_work = $request->responsible_work;
         $store->save();
 
         $form = Form::find($store->id);
