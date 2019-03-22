@@ -34,6 +34,8 @@
                 @foreach ($forms as $form)
                     @if ($form->approved == 1)
                         <tr style="background-color:lightgreen">
+                    @elseif ($form->approved == NULL)
+                        <tr style="background-color:#ff9933">
                     @else
                         <tr style="background-color:#f15959">
                     @endif

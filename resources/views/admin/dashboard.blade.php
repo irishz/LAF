@@ -15,6 +15,12 @@
                     @endif
 
                     You are logged in! as admin
+
+                        <h3>user id: </h3>
+                        @foreach ($results as $result)
+                            <label>{{ $result->user_id }}</label>
+                        @endforeach
+                        
                 </div>
             </div>
         </div>

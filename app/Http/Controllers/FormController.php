@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Form;
 use App\Mail\SendApprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,9 +61,15 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $store = new Form;
+        $store->user_id = Auth::user()->user_id;
+        $store->leave_type = $request->leave_type;
+        $store->leave_cause = $request->leave_cause;
+        $store->number_date_leave = $request->number_date_leave;
+        $store->date_leave = $request->date_leave;
+        $store->save();
 
-        return view('home');
+        return redirect('home');
     }
 
     /**

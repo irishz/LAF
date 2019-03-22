@@ -19,31 +19,31 @@
             <form method="POST" action="/form">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="DateReqLAF">1. วันที่ขอลาหยุด</label>
-                    <input type="date" class="form-control" id="DateReqLAF" name="DateReqLAF">
+                    <label for="date_leave">1. วันที่ขอลาหยุด</label>
+                    <input type="date" class="form-control" id="date_leave" name="date_leave">
                 </div>
                 <div class="form-group">
-                    <label for="LeaveType">2. ประเภทการลา</label><br>
-                    <input type="radio" name="leaveType" value="ลาป่วย">
+                    <label for="leave_type">2. ประเภทการลา</label><br>
+                    <input type="radio" name="leave_type" value="ลาป่วย">
                     <label>ลาป่วย</label><br>
-                    <input type="radio" name="leaveType" value="ลากิจ">
+                    <input type="radio" name="leave_type" value="ลากิจ">
                     <label>ลากิจ</label><br>
-                    <input type="radio" name="leaveType" value="ลาพักร้อน">
+                    <input type="radio" name="leave_type" value="ลาพักร้อน">
                     <label>ลาพักร้อน</label><br>
-                    <input type="radio" name="leaveType" value="ลาคลอด">
+                    <input type="radio" name="leave_type" value="ลาคลอด">
                     <label>ลาคลอด</label><br>
-                    <input type="radio" name="leaveType" value="ลาบวช">
+                    <input type="radio" name="leave_type" value="ลาบวช">
                     <label>ลาบวช</label><br>
-                    <input type="radio" name="leaveType" value="อื่นๆ">
+                    <input type="radio" name="leave_type" value="อื่นๆ">
                     <label>อิ่นๆ</label>
                 </div>
                 <div class="form-group">
-                    <label for="NumberDate">3. จำนวนวันที่ลาหยุด</label>
-                    <input class="form-control" type="number" id="NumberDate" name="NumberDate">
+                    <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>
+                    <input class="form-control" type="number" id="number_date_leave" name="number_date_leave">
                 </div>
                 <div class="form-group">
-                    <label for="reason">4. สาเหตุการลา</label>
-                    <input type="text" class="form-control" id="reason" name="reason">
+                    <label for="leave_cause">4. สาเหตุการลา</label>
+                    <textarea class="form-control" id="leave_cause" name="leave_cause"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

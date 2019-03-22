@@ -16,6 +16,10 @@ class CreateFormTable extends Migration
         Schema::create('form', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
+            $table->string('leave_type')->nullable();
+            $table->string('leave_cause')->nullable();
+            $table->integer('number_date_leave')->nullable();
+            $table->datetime('date_leave')->nullable();
             $table->boolean('approved')->nullable();
             $table->string('approve_by')->nullable();
             $table->dateTime('approve_datetime')->nullable();
