@@ -65,15 +65,15 @@ class FormController extends Controller
         $store->date_leave = $request->date_leave;
         $store->responsible_work = $request->responsible_work;
 
-        
-        $time = Carbon::now()->toDateTimeString();
-        $file = $request->file('attachment');
-        $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
+        // file store
+        // $time = Carbon::now()->toDateTimeString();
+        // $file = $request->file('attachment');
+        // $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
         // $path = $file->storeAs('public/'.$user_id, $filename);
 
         // Storage::disk('local')->put($filename,$user_id)->makeDirectory(public_path().$user_id);
-        Storage::disk('local')->put('file.txt', 'Contents')->makeDirectory('/1234578');
-        dd('stored');
+        // Storage::disk('local')->put('file.txt', 'Contents')->makeDirectory('pubclic//1234578');
+        // dd('stored');
         $store->save();
         
         $form = Form::find($store->id);
