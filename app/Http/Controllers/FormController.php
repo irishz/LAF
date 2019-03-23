@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Storage;
-use App\User;
 use App\Form;
+use App\User;
+use Carbon\Carbon;
 use App\Mail\SendApprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -58,27 +58,26 @@ class FormController extends Controller
         $user = User::find($user_id);
 
         $store = new Form;
-        // $store->user_id = $user_id;
-        // $store->leave_type = $request->leave_type;
-        // $store->leave_cause = $request->leave_cause;
-        // $store->number_date_leave = $request->number_date_leave;
-        // $store->date_leave = $request->date_leave;
-        // $store->responsible_work = $request->responsible_work;
-        // $store->attachment = $request->attachment;
-        // cache the file
-    $file = $request->file('attachment');
-        dd($file);
-    // generate a new filename. getClientOriginalExtension() for the file extension
-    $filename = $store->id . $user_id;
+        $store->user_id = $user_id;
+        $store->leave_type = $request->leave_type;
+        $store->leave_cause = $request->leave_cause;
+        $store->number_date_leave = $request->number_date_leave;
+        $store->date_leave = $request->date_leave;
+        $store->responsible_work = $request->responsible_work;
 
-    // save to storage/app/photos as the new $filename
-    $path = $file->storeAs('public', $filename);
+        
+        $time = Carbon::now()->toDateTimeString();
+        $file = $request->file('attachment');
+        $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
+        // $path = $file->storeAs('public/'.$user_id, $filename);
 
-    dd($path);
-        // $store->save();
-        dd('file stored');
+        // Storage::disk('local')->put($filename,$user_id)->makeDirectory(public_path().$user_id);
+        Storage::disk('local')->put('file.txt', 'Contents')->makeDirectory('/1234578');
+        dd('stored');
+        $store->save();
+        
         $form = Form::find($store->id);
-
+        
         // send approve mail to approver
         Mail::to("receiver@example.com")->send(new SendApprove($user,$form));
 
