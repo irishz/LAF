@@ -64,7 +64,6 @@ class FormController extends Controller
         $store->number_date_leave = $request->number_date_leave;
         $store->date_leave = $request->date_leave;
         $store->responsible_work = $request->responsible_work;
-
         // file store
         // $time = Carbon::now()->toDateTimeString();
         // $file = $request->file('attachment');
@@ -103,9 +102,10 @@ class FormController extends Controller
      */
     public function edit($id)
     {
-        $users = Form::find($id);
+        $forms = Form::find($id);
+        $users = User::find($forms->user_id);
 
-        return view('form.edit',compact('id','users'));
+        return view('form.edit',compact('id','forms','users'));
     }
 
     /**

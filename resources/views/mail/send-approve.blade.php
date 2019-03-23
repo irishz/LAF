@@ -1,6 +1,6 @@
 @component('mail::message')
 <pre>
-เรียน หัวหน้าแผนก{{ $user->department }}
+เรียน ผู้จัดการ/หัวหน้าแผนก{{ $user->department }}
     {{ $user->f_name}} ขออนุญาต{{ $form->leave_type }} ตั้งแต่วันที่ {{ $form->date_leave }} เป็นเวลา {{ $form->number_date_leave }} เนื่องด้วยสาเหตุ {{ $form->leave_cause }}
 โดยมีคุณ {{ $form->responsible_work }} เป็นผู้รับผิดชอบงานแทน
 

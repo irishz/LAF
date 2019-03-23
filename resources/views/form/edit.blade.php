@@ -11,21 +11,59 @@
 
 @section('content')
 <div class="container">
-    <label>Edit ID: {{ $id }}</label>
-    <form method="POST" action="/form/{{ $id }}">
-        {{ method_field('PATCH') }}
-        {{ csrf_field() }}
-        <div class="form-group">
-            <label for="approve">Approve</label>
-            <select id="approve" class="form-control" name="approve">
-                <option value="1">Approve</option>
-                <option value="0">Not Approve</option>
-            </select>
-        </div>
+    <div class="row justify-content-center">
+        <h1>Leave Application Form</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <form method="POST" action="/form/{{ $id }}">
+                {{ method_field('PATCH') }}
+                {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-lg-4">เลขที่ใบลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->id }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">ชื่อผู้ลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $users->prename.$users->f_name.' '.$users->l_name }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">วันที่ลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->date_leave }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">ประเภทการลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->leave_type }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">สาเหตุการลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->leave_cause }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">จำนวนวันลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->number_date_leave }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">วันที่ลา: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->date_leave }}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">ผู้รับผิดชอบงานแทน: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->responsible_work }}"></div>
+                </div>
+                
 
-        <button type="submit" class="btn btn-primary">
-            {{ __('Submit') }}
-        </button>
-    </form>
+                {{--  approve  --}}
+                <div class="form-group">
+                    <label for="approve">อนุมัติ</label><br>
+                    <select id="approve" class="form-control" name="approve">
+                        <option value="1">อนุมัติ</option>
+                        <option value="0">ไม่อนุมัติ</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection
