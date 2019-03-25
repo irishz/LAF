@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Form;
 use App\User;
 use Carbon\Carbon;
+use App\Mail\SendResult;
 use App\Mail\SendApprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -123,6 +124,17 @@ class FormController extends Controller
         $upd_form->approve_by = Auth::user()->f_name;
         $upd_form->approve_datetime = Carbon::now()->toDateTimeString();
         $upd_form->save();
+
+        $user = User::find($upd_form->user_id);
+
+        if ($upd_form->approved == 1) {
+            $status = 'อนุมัติ';
+        }else{
+            $status = 'ไม่อนุมัติ';
+        }
+
+        // send result mail to user
+        Mail::to($user->email)->send(new SendResult($user,$upd_form,$status));
 
         return redirect('/admin/dashboard');
     }
