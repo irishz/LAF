@@ -33,22 +33,22 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($results as $result)
-                    @if ($result->approved == 1)
+                @foreach ($observes as $observe)
+                    @if ($observe->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($result->approved == NULL)
+                    @elseif ($observe->approved == NULL)
                         <tr style="background-color:#ff9933">
                     @else
                         <tr style="background-color:#f15959">
                     @endif
-                        <th scope="row">{{ $result->id }}</th>
-                        <td>{{ $result->user_id }}</td>
-                        <td>{{ $result->f_name.' '.$result->l_name }}</td>
-                        <td>{{ $result->number_date_leave }}</td>
-                        <td>{{ $result->approved}}</td>
-                        <td>{{ $result->approve_by }}</td>
-                        <td>{{ $result->created_at }}</td>
-                        <td><a href="/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
+                        <th scope="row">{{ $observe->id }}</th>
+                        <td>{{ $observe->user_id }}</td>
+                        <td>{{ $observe->f_name.' '.$observe->l_name }}</td>
+                        <td>{{ $observe->number_date_leave }}</td>
+                        <td>{{ $observe->approved}}</td>
+                        <td>{{ $observe->approve_by }}</td>
+                        <td>{{ $observe->created_at }}</td>
+                        <td><a href="/form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>
