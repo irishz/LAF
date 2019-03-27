@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Leave</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Kanit', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -71,17 +71,17 @@
                     @if (auth()->check())
                         @if (auth()->user()->isAdmin())
                             <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
-                                Admin Home
+                                ผู้ดูแลระบบ
                             </a>
                         @else
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">หน้าแรก</a>
                         @endif
                     @endif
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">ลงทะเบียน</a>
                         @endif
                     @endauth
                 </div>
@@ -93,8 +93,8 @@
                 </div>
 
                 <div class="links">
-                    <a class="btn btn-secondary" href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a class="btn btn-secondary" href="{{ route('login') }}">เข้าสู่ระบบ</a>
+                    <a href="{{ route('register') }}">ลงทะเบียน</a>
                 </div>
             </div>
         </div>

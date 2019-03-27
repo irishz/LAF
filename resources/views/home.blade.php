@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+@section('css')
+<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Employee Data</div>
+                <div class="card-header">ข้อมูลประจำตัวพนักงาน</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,23 +18,22 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <br>
-                    Welcome K.{{ Auth::user()->f_name }} id={{ Auth::user()->user_id }}
+                    สวัสดีคุณ: {{ Auth::user()->f_name }} ({{ Auth::user()->user_id }})
+
                 </div>
             </div>
         </div>
+
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Employee ID</th>
-                <th scope="col">NO Leave Day</th>
-                <th scope="col">Leave Date</th>
-                <th scope="col">Approved</th>
-                <th scope="col">Approved By</th>
-                <th scope="col">Approved Date</th>
-                
+                <th scope="col">เลขที่ใบลา</th>
+                <th scope="col">รหัสพนักงาน</th>
+                <th scope="col">จำนวนวันลา</th>
+                <th scope="col">วันที่ลา</th>
+                <th scope="col">ผลการลา</th>
+                <th scope="col">อนุมัติโดย</th>
+                <th scope="col">วันที่อนุมัติ</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +45,7 @@
                     @else
                         <tr style="background-color:#f15959">
                     @endif
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $form->id }}</th>
                         <td>{{ $form->user_id }}</td>
                         <td>{{ $form->number_date_leave }}</td>
                         <td>{{ $form->created_at }}</td>

@@ -12,7 +12,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Leave Application Form</h1>
+        <h1>แบบฟอร์มการลา</h1>
     </div>
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -54,7 +54,7 @@
                     <label for="attachment">6. เอกสารแนบ(ใบรับรองแพทย์ / เอกสารอื่นๆ ประกอบการลา) ถ้ามี</label>
                     <input type="file" class="form-control" id="attachment" name="attachment">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">ยืนยัน</button>
             </form>
         </div>
     </div>
