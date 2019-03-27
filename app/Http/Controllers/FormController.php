@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
-    public function mail(Request $request){
-        $send = Form::all();
-        
-        $send->notify(new SendApprove());
-    }
-
     /**
      * Display a listing of the resource.
      *
