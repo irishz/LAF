@@ -7,6 +7,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Mail\SendResult;
 use App\Mail\SendRequest;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -36,7 +37,7 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function file()
     {
         //
     }
@@ -65,9 +66,9 @@ class FormController extends Controller
         // $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
         // $path = $file->storeAs('public/'.$user_id, $filename);
 
+        // Storage::putFileAs($user_id, new File($path), $filename);
         // Storage::disk('local')->put($filename,$user_id)->makeDirectory(public_path().$user_id);
         // Storage::disk('local')->put('file.txt', 'Contents')->makeDirectory('pubclic//1234578');
-        // dd('stored');
         $store->save();
         
         $form = Form::find($store->id);
