@@ -7,21 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendResult extends Mailable
+class SendRequest extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $user,$upd_form,$status;
+    
+    public $user,$form;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user,$upd_form,$status)
+    public function __construct($user,$form)
     {
         $this->user = $user;
-        $this->upd_form = $upd_form;
-        $this->status = $status;
+        $this->form = $form;
     }
 
     /**
@@ -31,8 +30,8 @@ class SendResult extends Mailable
      */
     public function build()
     {
-        $subject = '<Auto-Generate> Result leave form';
+        $subject = '<Auto-Generate> Approve leave application form';
 
-        return $this->subject($subject)->markdown('mail.send-result');
+        return $this->subject($subject)->markdown('mail.send-request');
     }
 }

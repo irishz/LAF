@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/form', 'FormController@store');
     Route::get('/form/{id}/edit', 'FormController@edit');
     Route::patch('/form/{id}', 'FormController@update');
+    
+    
 });
 
 //Route for admin
@@ -33,3 +35,6 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/dashboard', 'admin\AdminController@index');
     });
 });
+
+Route::get('/approve/{form_id}/{user_dept}', 'MailController@SendApprove');
+Route::get('/not-approve/{form_id}/{user_dept}', 'MailController@SendNotApprove');

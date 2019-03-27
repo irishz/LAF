@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -29,8 +29,7 @@ class AdminController extends Controller
 
             return view('admin/dashboard',compact('results'));
         }
-        
-        dd($results,$observes);
+
         return view('admin/dashboard',compact('results','$observes'));
     }
 

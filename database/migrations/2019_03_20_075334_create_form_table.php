@@ -20,6 +20,7 @@ class CreateFormTable extends Migration
             $table->string('leave_cause')->nullable();
             $table->float('number_date_leave')->nullable();
             $table->datetime('date_leave')->nullable();
+            $table->string('commented')->nullable();
             $table->boolean('approved')->nullable();
             $table->string('approve_by')->nullable();
             $table->string('responsible_work')->nullable();

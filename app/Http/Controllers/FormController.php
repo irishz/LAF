@@ -6,7 +6,7 @@ use App\Form;
 use App\User;
 use Carbon\Carbon;
 use App\Mail\SendResult;
-use App\Mail\SendApprove;
+use App\Mail\SendRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -79,8 +79,9 @@ class FormController extends Controller
         $form = Form::find($store->id);
         
         // send approve mail to approver
-        Mail::to("receiver@example.com")->send(new SendApprove($user,$form));
-
+        Mail::to("hrd@example.com")->send(new SendRequest($user,$form));
+        Mail::to("ceo@example.com")->send(new SendRequest($user,$form));
+        
         return redirect('home');
     }
 
@@ -136,7 +137,7 @@ class FormController extends Controller
         // send result mail to user
         Mail::to($user->email)->send(new SendResult($user,$upd_form,$status));
 
-        return redirect('/admin/dashboard');
+        return redirect('/');
     }
 
     /**

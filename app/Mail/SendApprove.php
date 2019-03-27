@@ -30,7 +30,7 @@ class SendApprove extends Mailable
      */
     public function build()
     {
-        $subject = '<Auto-Generate> Approve leave application form';
+        $subject = '<Auto-Generate> Comment from CEO';
 
         return $this->subject($subject)->markdown('mail.send-approve');
     }

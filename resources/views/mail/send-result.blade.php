@@ -7,7 +7,7 @@
 
 </pre>
 
-@component('mail::button', ['url' => 'http://leave.ddns.net:8000/form/'.$upd_form->id.'/edit'])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/home'])
 ตรวจสอบสถานะ
 @endcomponent
 

@@ -1,10 +1,10 @@
 @component('mail::message')
 <pre>
 เรียน ผู้จัดการ/หัวหน้าแผนก{{ $user->department }}
-    อนุญาตให้อนุมัติ ใบลาเลขที่ {{ $form->id }} ของ {{ $user->f_name }}
+    ไม่อนุญาตให้อนุมัติ ใบลาเลขที่ {{ $form->id }} ของ {{ $user->f_name }}
 </pre>
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/form/'.$form->id.'/edit',],['method'=>'GET'])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/form/'.$form->id.'/edit'])
 ไปยังหน้าอนุมัติ
 @endcomponent
 
