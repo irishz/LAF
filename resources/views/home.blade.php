@@ -2,6 +2,7 @@
 
 @section('css')
 <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 @endsection
 
 @section('content')

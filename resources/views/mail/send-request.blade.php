@@ -6,17 +6,20 @@
 
 </pre>
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/approve/'.$form->id.'/'.$user->department])
+@component('mail::button', ['url' => 'http://127.0.0.1:8001/approve/'.$form->id.'/'.$user->department])
 Approve
 @endcomponent
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/not-approve/'.$form->id.'/'.$user->department])
+@component('mail::button', ['url' => 'http://127.0.0.1:8001/not-approve/'.$form->id.'/'.$user->department])
 Not Approve
 @endcomponent
 
 <pre>
-จึงเรียนมาเพื่อทราบ<br>
-        วัฒนา บุพพิ
-ประธานเจ้าหน้าที่บริหาร
+จึงเรียนมาเพื่อทราบและอนุมัติ<br>
+    <center>
+        {{ $user->prename.$user->f_name.' '.$user->l_name }}
+        {{ $user->position }}
+        {{ $user->department }}
+    </center>
 </pre>
 @endcomponent

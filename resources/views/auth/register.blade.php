@@ -15,7 +15,7 @@
                             <label for="user_id" class="col-md-4 col-form-label text-md-right">{{ __('รหัสพนักงาน') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="user_id" type="text" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" value="{{ old('user_id') }}" required>
+                                <input id="user_id" type="text" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" value="{{ old('user_id') }}" required autofocus>
                         
                                 @if ($errors->has('user_id'))
                                     <span class="invalid-feedback" role="alert">
@@ -32,9 +32,9 @@
                             <div class="col-md-6">
                                 <select id="prename" class="form-control" name="prename">
                                     <option value=""></option>
-                                    <option value="mr">Mr.</option>
-                                    <option value="miss">Miss</option>
-                                    <option value="mrs">Mrs.</option>
+                                    <option value="นาย">นาย</option>
+                                    <option value="น.ส.">นางสาว</option>
+                                    <option value="นาง">นาง</option>
                                 </select>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <label for="f_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="f_name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}" autofocus>
+                                <input id="f_name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}">
                             </div>
                         </div>
 
@@ -87,10 +87,10 @@
                             <div class="col-md-6">
                                 <select id="section" class="form-control" name="section">
                                     <option value=""></option>
-                                    <option value="management">ฝ่ายบริหาร</option>
-                                    <option value="medical">ฝ่ายการพยาบาล</option>
-                                    <option value="med_supp">ฝ่ายสนับสนุนการแพทย์</option>
-                                    <option value="gen_supp">ฝ่ายสนับสนุนทั่วไป</option>
+                                    <option value="ฝ่ายบริหาร">ฝ่ายบริหาร</option>
+                                    <option value="ฝ่ายการพยาบาล">ฝ่ายการพยาบาล</option>
+                                    <option value="ฝ่ายสนับสนุนการแพทย์">ฝ่ายสนับสนุนการแพทย์</option>
+                                    <option value="ฝ่ายสนับสนุนทั่วไป">ฝ่ายสนับสนุนทั่วไป</option>
                                 </select>
                             </div>
                         </div>

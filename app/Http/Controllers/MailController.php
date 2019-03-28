@@ -19,10 +19,17 @@ class MailController extends Controller
         $upd_form->save();
         
         $mng_email = User::where('department',$user_dept)->where('type',1)->get();
-        return Mail::to($mng_email[0]['email'])->send(new SendApprove($users,$upd_form));
+        
+        if(!$mng_email->isEmpty()){
+            dd('You have no manager');
+            return ('You have no manager');
+        }else{
+            return Mail::to($mng_email[0]['email'])->send(new SendApprove($users,$upd_form));
+        }
     }
 
     public function SendNotApprove($form_id,$user_dept){
+        dd('send not approve');
         $upd_form = Form::find($form_id);
         $users = User::find($upd_form->user_id);
 

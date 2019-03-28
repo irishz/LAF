@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in! as admin
+                    You are logged in! as admin observe
 
                 </div>
             </div>
@@ -22,14 +22,14 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">Form No.</th>
-                <th scope="col">Employee ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">NO Leave Day</th>
-                <th scope="col">Approved</th>
-                <th scope="col">Approved By</th>
-                <th scope="col">Leave Date</th>
-                <th scope="col">Edit</th>
+                    <th scope="col">เลขที่ใบลา</th>
+                    <th scope="col">รหัสพนักงาน</th>
+                    <th scope="col">ชื่อ</th>
+                    <th scope="col">จำนวนวันลา</th>
+                    <th scope="col">ผลการลา</th>
+                    <th scope="col">อนุมัติโดย</th>
+                    <th scope="col">วันที่ลา</th>
+                    <th scope="col">แก้ไข</th>
                 </tr>
             </thead>
             <tbody>
