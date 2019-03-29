@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">สวัสดีคุณ {{ Auth::user()->f_name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in! as admin observe
+                    หน้าสำหรับผู้สังเกตการณ์
 
                 </div>
             </div>
@@ -36,16 +36,22 @@
                 @foreach ($observes as $observe)
                     @if ($observe->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($observe->approved == NULL)
-                        <tr style="background-color:#ff9933">
-                    @else
+                    @elseif ($observe->approved == 0)
                         <tr style="background-color:#f15959">
+                    @else
+                        <tr style="background-color:#ff9933">
                     @endif
                         <th scope="row">{{ $observe->id }}</th>
                         <td>{{ $observe->user_id }}</td>
                         <td>{{ $observe->f_name.' '.$observe->l_name }}</td>
                         <td>{{ $observe->number_date_leave }}</td>
-                        <td>{{ $observe->approved}}</td>
+                        @if ($observe->approved == 1)
+                            <td>อนุมัติ</td>
+                        @elseif($observe->approved == 0)
+                            <td>ไม่อนุมัติ</td>
+                        @else
+                            <td>ยังไม่อนุมัติ</td>
+                        @endif
                         <td>{{ $observe->approve_by }}</td>
                         <td>{{ $observe->created_at }}</td>
                         <td><a href="/form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">สวัสดีคุณ {{ Auth::user()->f_name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in! as admin
+                    หน้าสำหรับหัวหน้าแผนก/ผู้รักษาการแทน
 
                 </div>
             </div>
@@ -36,16 +36,20 @@
                 @foreach ($results as $result)
                     @if ($result->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($result->approved == NULL)
-                        <tr style="background-color:#ff9933">
-                    @else
+                    @elseif ($result->approved == 0)
                         <tr style="background-color:#f15959">
+                    @else
+                        <tr style="background-color:#ff9933">
                     @endif
                         <th scope="row">{{ $result->id }}</th>
                         <td>{{ $result->user_id }}</td>
                         <td>{{ $result->f_name.' '.$result->l_name }}</td>
                         <td>{{ $result->number_date_leave }}</td>
-                        <td>{{ $result->approved}}</td>
+                        @if ($result->approved == 1)
+                            <td>อนุมัติ</td>
+                        @else
+                            <td>ไม่อนุมัติ</td>
+                        @endif
                         <td>{{ $result->approve_by }}</td>
                         <td>{{ $result->created_at }}</td>
                         <td><a href="/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>

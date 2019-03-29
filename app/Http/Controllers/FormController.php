@@ -126,7 +126,7 @@ class FormController extends Controller
         // send result mail to user
         Mail::to($user->email)->send(new SendResult($user,$upd_form,$status));
 
-        return redirect('/');
+        return redirect('/admin/dashboard');
     }
 
     /**
