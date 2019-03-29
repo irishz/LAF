@@ -53,6 +53,7 @@
                 <div class="form-group">
                     <label for="attachment">6. เอกสารแนบ(ใบรับรองแพทย์ / เอกสารอื่นๆ ประกอบการลา) ถ้ามี</label>
                     <input type="file" class="form-control" id="attachment" name="attachment">
+                    <label for="attachment">อัพโหลดได้เฉพาะ jpg,png,pdf เท่านั้น</label>
                 </div>
                 <button type="submit" class="btn btn-primary">ยืนยัน</button>
             </form>

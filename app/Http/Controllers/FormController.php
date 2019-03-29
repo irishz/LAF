@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
@@ -33,16 +34,6 @@ class FormController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function file()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -60,21 +51,19 @@ class FormController extends Controller
         $store->number_date_leave = $request->number_date_leave;
         $store->date_leave = $request->date_leave;
         $store->responsible_work = $request->responsible_work;
+        
         // file store
-        $time = Carbon::now()->toDateTimeString();
-        $file = $request->file('attachment');
-        $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('public/'.$user_id, $filename);
+        if ($request->hasFile('attachment')) {
+            $time = Carbon::now()->format('YmdHs');
+            $file = $request->file('attachment');
+            $filename = $user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
+            $path = 'public/'.$user_id;
 
-        Storage::put(
-            'avatars/'.$user_id,
-            file_get_contents($request->file('attachment')->getRealPath())
-        );
-        dd('store');
-        // Storage::putFileAs($user_id, new File($path), $filename);
-        // Storage::disk('local')->put($filename,$user_id)->makeDirectory(public_path().$user_id);
-        // Storage::disk('local')->put('file.txt', 'Contents')->makeDirectory('pubclic//1234578');
-        // $store->save();
+            Storage::putFileAs('public/'.$user_id,$request->file('attachment'),$user_id.'_'.$time.'.'.$file->getClientOriginalExtension());
+            $store->attachment = $path.'/'.$user_id.'_'.$time.'.'.$file->getClientOriginalExtension();
+        }
+        
+        $store->save();
         
         $form = Form::find($store->id);
         
