@@ -14,7 +14,7 @@ class AdminController extends Controller
         
         $manager_dept = Auth::user()->department;
 
-        if (Auth::user()->user_id == '0000000000') {
+        if (Auth::user()->user_id == '1111') {
             $observes = DB::table('users')
             ->join('form', 'users.user_id', '=', 'form.user_id')
             ->select('users.*','form.*')->get();
@@ -29,8 +29,6 @@ class AdminController extends Controller
 
             return view('admin/dashboard',compact('results'));
         }
-
-        return view('admin/dashboard',compact('results','$observes'));
     }
 
 }

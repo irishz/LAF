@@ -36,7 +36,7 @@
                 @foreach ($observes as $observe)
                     @if ($observe->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($observe->approved == 0)
+                    @elseif ($observe->approved === 0)
                         <tr style="background-color:#f15959">
                     @else
                         <tr style="background-color:#ff9933">
@@ -47,10 +47,10 @@
                         <td>{{ $observe->number_date_leave }}</td>
                         @if ($observe->approved == 1)
                             <td>อนุมัติ</td>
-                        @elseif($observe->approved == 0)
+                        @elseif($observe->approved === 0)
                             <td>ไม่อนุมัติ</td>
                         @else
-                            <td>ยังไม่อนุมัติ</td>
+                            <td>รอการอนุมัติ</td>
                         @endif
                         <td>{{ $observe->approve_by }}</td>
                         <td>{{ $observe->created_at }}</td>

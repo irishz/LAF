@@ -6,11 +6,11 @@
 
 </pre>
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8001/approve/'.$form->id.'/'.$user->department])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/approve/'.$form->id.'/'.$user->department])
 Approve
 @endcomponent
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8001/not-approve/'.$form->id.'/'.$user->department])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/not-approve/'.$form->id.'/'.$user->department])
 Not Approve
 @endcomponent
 

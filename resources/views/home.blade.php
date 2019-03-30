@@ -41,7 +41,7 @@
                 @foreach ($forms as $form)
                     @if ($form->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($form->approved == 0)
+                    @elseif ($form->approved === 0)
                         <tr style="background-color:#f15959">
                     @else
                         <tr style="background-color:#ff9933">
@@ -52,8 +52,10 @@
                         <td>{{ $form->created_at }}</td>
                         @if ($form->approved == 1)
                             <td>อนุมัติ</td>
-                        @else
+                        @elseif($form->approved === 0)
                             <td>ไม่อนุมัติ</td>
+                        @else
+                            <td>รอการอนุมัติ</td>
                         @endif
                         <td>{{ $form->approve_by }}</td>
                         <td>{{ $form->approve_datetime }}</td>

@@ -36,7 +36,7 @@
                 @foreach ($results as $result)
                     @if ($result->approved == 1)
                         <tr style="background-color:lightgreen">
-                    @elseif ($result->approved == 0)
+                    @elseif ($result->approved === 0)
                         <tr style="background-color:#f15959">
                     @else
                         <tr style="background-color:#ff9933">
@@ -47,8 +47,10 @@
                         <td>{{ $result->number_date_leave }}</td>
                         @if ($result->approved == 1)
                             <td>อนุมัติ</td>
-                        @else
+                        @elseif($result->approved === 0)
                             <td>ไม่อนุมัติ</td>
+                        @else
+                            <td>รอการอนุมัติ</td>
                         @endif
                         <td>{{ $result->approve_by }}</td>
                         <td>{{ $result->created_at }}</td>

@@ -45,16 +45,29 @@
                     <div class="col-lg-4">ผู้รับผิดชอบงานแทน: </div>
                     <div class="col-lg-4"><input type="text" value="{{ $forms->responsible_work }}" disabled></div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-4">ความคิดเห็นจาก CEO: </div>
+                    <div class="col-lg-4"><input type="text" value="{{ $forms->commented }}" disabled></div>
+                </div>
                 
                 {{--  approve  --}}
                 <div class="form-group">
                     <label for="approve">อนุมัติ</label><br>
+                @if($forms->commented === 'null')
+                    <select id="approve" class="form-control" name="approve" disabled>
+                        <option value="1">อนุมัติ</option>
+                        <option value="0">ไม่อนุมัติ</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary" disabled>ยืนยัน</button>
+                @else
                     <select id="approve" class="form-control" name="approve">
                         <option value="1">อนุมัติ</option>
                         <option value="0">ไม่อนุมัติ</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                @endif
             </form>
         </div>
     </div>
