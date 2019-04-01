@@ -24,7 +24,8 @@
                 <tr>
                 <th scope="col">เลขที่ใบลา</th>
                 <th scope="col">รหัสพนักงาน</th>
-                <th scope="col">ชื่อ</th>
+                <th scope="col">ชื่อผู้ลา</th>
+                <th scope="col">แผนก</th>
                 <th scope="col">จำนวนวันลา</th>
                 <th scope="col">ผลการลา</th>
                 <th scope="col">อนุมัติโดย</th>
@@ -44,6 +45,7 @@
                         <th scope="row">{{ $result->id }}</th>
                         <td>{{ $result->user_id }}</td>
                         <td>{{ $result->f_name.' '.$result->l_name }}</td>
+                        <td>{{ $result->department }}</td>
                         <td>{{ $result->number_date_leave }}</td>
                         @if ($result->approved == 1)
                             <td>อนุมัติ</td>
