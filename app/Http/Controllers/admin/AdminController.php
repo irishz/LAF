@@ -22,15 +22,14 @@ class AdminController extends Controller
 
             return view('admin/dashboard-obs',compact('observes'));
         }else {
-            dd('switch');
-            switch ($results->user_id) {
+            switch (Auth::user()->user_id) {
                 //P'PUY acc+itd
                 case '111111':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->where('users.department','=',Auth::user()->department)
+                    ->whereIn('users.department',array(''))
                     ->get();
     
                     return view('admin/extra1',compact('results'));
@@ -41,7 +40,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->where('users.department','=',Auth::user()->department)
+                    ->whereIn('users.department',array(''))
                     ->get();
                 
                     return view('admin/extra2',compact('results'));
@@ -52,7 +51,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->where('users.department','=','')
+                    ->whereIn('users.department',array('ศูนย์คอมพิวเตอร์','แผนกบัญชี'))
                     ->get();
     
                     return view('admin/extra3',compact('results'));
@@ -63,7 +62,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->where('users.department','=',Auth::user()->department)
+                    ->whereIn('users.department',array(''))
                     ->get();
     
                     return view('admin/extra4',compact('results'));

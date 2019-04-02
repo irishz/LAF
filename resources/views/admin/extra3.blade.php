@@ -25,6 +25,7 @@
                 <th scope="col">เลขที่ใบลา</th>
                 <th scope="col">รหัสพนักงาน</th>
                 <th scope="col">ชื่อผู้ลา</th>
+                <th scope="col">แผนก</th>
                 <th scope="col">จำนวนวันลา</th>
                 <th scope="col">ผลการลา</th>
                 <th scope="col">อนุมัติโดย</th>
