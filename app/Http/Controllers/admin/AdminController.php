@@ -22,7 +22,8 @@ class AdminController extends Controller
 
             return view('admin/dashboard-obs',compact('observes'));
         }else {
-            switch (Auth::user()->user_id) {
+            dd('switch');
+            switch ($results->user_id) {
                 //P'PUY acc+itd
                 case '111111':
                     $results = DB::table('users')
@@ -47,16 +48,13 @@ class AdminController extends Controller
                     break;
                 //p'pawinee IPD2-5,icu,lnd,ord
                 case '987654321':
-                $matchThese = ['users.department' => 'หอผู้ป่วยในชั้น4', 
-                            'users.department' => 'หอผู้ป่วยในชั้น5'];
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->where('users.department','หอผู้ป่วยVIPชั้น5')
-                    ->where('users.department','หอผู้ป่วยในชั้น4')
+                    ->where('users.department','=','')
                     ->get();
-                dd($results);
+    
                     return view('admin/extra3',compact('results'));
                     break;
                 //p'wiitatya trd+eng+scu
