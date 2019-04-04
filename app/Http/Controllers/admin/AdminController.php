@@ -15,7 +15,7 @@ class AdminController extends Controller
         $manager_dept = Auth::user()->department;
 
 
-        if (Auth::user()->user_id == '1111' | Auth::user()->user_id == '0226003131') {
+        if (Auth::user()->user_id == '0005401111' | Auth::user()->user_id == '0226003131') {
             $observes = DB::table('users')
             ->join('form', 'users.user_id', '=', 'form.user_id')
             ->select('users.*','form.*')->get();
@@ -24,7 +24,7 @@ class AdminController extends Controller
         }else {
             switch (Auth::user()->user_id) {
                 //P'PUY acc+itd
-                case '111111':
+                case '0025401131':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
@@ -35,7 +35,7 @@ class AdminController extends Controller
                     return view('admin/extra1',compact('results'));
                     break;
                 //P'pikul opd1+pcu
-                case '222222':
+                case '0855704461':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
@@ -46,7 +46,7 @@ class AdminController extends Controller
                     return view('admin/extra2',compact('results'));
                     break;
                 //p'pawinee IPD2-5,icu,lnd,ord
-                case '987654321':
+                case '1175404561':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
@@ -57,7 +57,7 @@ class AdminController extends Controller
                     return view('admin/extra3',compact('results'));
                     break;
                 //p'wiitatya trd+eng+scu
-                case '444444':
+                case '0755804151':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
