@@ -37,7 +37,7 @@ class MailController extends Controller
         $mng_email = User::where('department',$user_dept)->where('type',1)->get();
 
         if($mng_email->isEmpty()){
-            return ('แผนกนี้ไม่มีหัวหน้าหน่วยงานในระบบ');
+            return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
         }else{
             return Mail::to($mng_email[0]['email'])->send(new SendNotApprove($users,$upd_form));
         }

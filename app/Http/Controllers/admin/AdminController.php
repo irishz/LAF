@@ -29,7 +29,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->whereIn('users.department',array(''))
+                    ->whereIn('users.department',array('แผนกบัญชี','ศูนย์คอมพิวเตอร์'))
                     ->get();
     
                     return view('admin/extra1',compact('results'));
@@ -40,7 +40,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->whereIn('users.department',array(''))
+                    ->whereIn('users.department',array('แผนกผู้ป่วยนอก(ประกันสังคม)','แผนกบริการปฐมภูมิ'))
                     ->get();
                 
                     return view('admin/extra2',compact('results'));
@@ -51,7 +51,8 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->whereIn('users.department',array('ศูนย์คอมพิวเตอร์','แผนกบัญชี'))
+                    ->whereIn('users.department',array('หอผู้ป่วยหนัก','หอผู้ป่วยในชั้น2','หอผู้ป่วยในชั้น3',
+                    'หอผู้ป่วยในชั้น4','หอผู้ป่วยVIPชั้น5','แผนกห้องคลอดและทารกแรกเกิด','แผนกห้องผ่าตัด'))
                     ->get();
     
                     return view('admin/extra3',compact('results'));
@@ -62,7 +63,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->whereIn('users.department',array(''))
+                    ->whereIn('users.department',array('แผนกรับส่งผู้ป่วย','หน่วยรปภ','แผนกซ่อมบำรุง'))
                     ->get();
     
                     return view('admin/extra4',compact('results'));
