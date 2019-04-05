@@ -12,11 +12,11 @@
                         @csrf
                         {{--  Employee id  --}}
                         <div class="form-group row">
-                            <label for="user_id" class="col-md-4 col-form-label text-md-right">{{ __('รหัสพนักงาน') }}</label>
+                            <label for="user_id" class="col-md-4 col-form-label text-md-right">{{ __('รหัสพนักงาน') }} <label style="color:red">*</label></label>
                             
                             <div class="col-md-6">
-                                <input id="user_id" type="text" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" value="{{ old('user_id') }}" required autofocus>
-                        
+                                <span><input id="user_id" type="text" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" value="{{ old('user_id') }}" required autofocus>
+                
                                 @if ($errors->has('user_id'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('user_id') }}</strong>
@@ -41,7 +41,7 @@
                         
                         {{--  First Name  --}}
                         <div class="form-group row">
-                            <label for="f_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อ') }}</label>
+                            <label for="f_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อ') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
                                 <input id="f_name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}">
@@ -111,7 +111,7 @@
                         
                         {{--  E-Mail Address  --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('อีเมล') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('อีเมล') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -126,7 +126,7 @@
 
                         {{--  Password  --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -136,7 +136,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div>p
                         </div>
 
                         {{--  password confirm  --}}

@@ -70,6 +70,7 @@ class FormController extends Controller
         // send approve mail to approver
         Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
         Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
+        // Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
         return redirect('home');
     }
 
