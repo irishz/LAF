@@ -7,14 +7,14 @@
         <title>Leave</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Kanit', sans-serif;
+                font-family: 'Roboto', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
