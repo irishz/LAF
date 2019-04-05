@@ -136,7 +136,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>p
+                            </div>
                         </div>
 
                         {{--  password confirm  --}}
