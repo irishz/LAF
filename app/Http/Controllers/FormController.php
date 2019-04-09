@@ -68,23 +68,21 @@ class FormController extends Controller
         $form = Form::find($store->id);
         
         // send approve mail to approver
-        Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
-        Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
-        Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
-        Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
-        // Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
+        try{
+            $this->sendMail($user,$form);
+        }catch(Exception $e){
+            return $e;
+        }
         return redirect('home');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\r  $r
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
+    public function sendMail($user,$form)
     {
-        //
+        // Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
+        // Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
+        // Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
+        // Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
+        Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
     }
 
     /**

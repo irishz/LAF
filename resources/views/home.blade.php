@@ -59,7 +59,6 @@
                         @endif
                         <td>{{ $form->approve_by }}</td>
                         <td>{{ $form->approve_datetime }}</td>
-                        
                     </tr>
                 @endforeach
             </tbody>

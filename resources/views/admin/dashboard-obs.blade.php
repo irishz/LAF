@@ -27,9 +27,10 @@
                     <th scope="col">ชื่อผู้ลา</th>
                     <th scope="col">แผนก</th>
                     <th scope="col">จำนวนวันลา</th>
+                    <th scope="col">วันที่ลา</th>
                     <th scope="col">ผลการลา</th>
                     <th scope="col">อนุมัติโดย</th>
-                    <th scope="col">วันที่ลา</th>
+                    <th scope="col">วันที่อนุมัติ</th>
                     <th scope="col">แก้ไข</th>
                 </tr>
             </thead>
@@ -47,6 +48,7 @@
                         <td>{{ $observe->f_name.' '.$observe->l_name }}</td>
                         <td>{{ $observe->department }}</td>
                         <td>{{ $observe->number_date_leave }}</td>
+                        <td>{{ $observe->date_leave }}</td>
                         @if ($observe->approved == 1)
                             <td>อนุมัติ</td>
                         @elseif($observe->approved === 0)
@@ -55,7 +57,7 @@
                             <td>รอการอนุมัติ</td>
                         @endif
                         <td>{{ $observe->approve_by }}</td>
-                        <td>{{ $observe->created_at }}</td>
+                        <td>{{ $observe->approve_datetime }}</td>
                         <td><a href="/form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
                     </tr>
                 @endforeach

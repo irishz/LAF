@@ -16,13 +16,13 @@ class MailController extends Controller
         $users = User::find($upd_form->user_id);
         
         $upd_form->commented = 'Yes';
-        $upd_form->save();
         
         $mng_email = User::where('department',$user_dept)->where('type',1)->get();
 
         if($mng_email->isEmpty()){
-            return ('แผนกนี้ไม่มีหัวหน้าหน่วยงานในระบบ');
+            return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
         }else{
+            $upd_form->save();
             return Mail::to($mng_email[0]['email'])->send(new SendApprove($users,$upd_form));
         }
     }
@@ -32,13 +32,14 @@ class MailController extends Controller
         $users = User::find($upd_form->user_id);
 
         $upd_form->commented = 'No';
-        $upd_form->save();
+        
         
         $mng_email = User::where('department',$user_dept)->where('type',1)->get();
 
         if($mng_email->isEmpty()){
             return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
         }else{
+            $upd_form->save();
             return Mail::to($mng_email[0]['email'])->send(new SendNotApprove($users,$upd_form));
         }
     }

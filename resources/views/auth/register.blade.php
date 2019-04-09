@@ -27,10 +27,10 @@
 
                         {{--  Prename  --}}
                         <div class="form-group row">
-                            <label for="prename" class="col-md-4 col-form-label text-md-right">{{ __('คำนำหน้า') }}</label>
+                            <label for="prename" class="col-md-4 col-form-label text-md-right">{{ __('คำนำหน้า') }} <label style="color:red">*</label></label>
                             
                             <div class="col-md-6">
-                                <select id="prename" class="form-control" name="prename">
+                                <select id="prename" class="form-control" name="prename" required>
                                     <option value=""></option>
                                     <option value="นาย">นาย</option>
                                     <option value="น.ส.">นางสาว</option>
@@ -44,34 +44,34 @@
                             <label for="f_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อ') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
-                                <input id="f_name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}">
+                                <input id="f_name" type="text" class="form-control" name="f_name" value="{{ old('f_name') }}" required>
                             </div>
                         </div>
 
                         {{--  Last Name  --}}
                         <div class="form-group row">
-                            <label for="l_name" class="col-md-4 col-form-label text-md-right">{{ __('นามสกุล') }}</label>
+                            <label for="l_name" class="col-md-4 col-form-label text-md-right">{{ __('นามสกุล') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
-                                <input id="l_name" type="text" class="form-control" name="l_name" value="{{ old('l_name') }}" autofocus>
+                                <input id="l_name" type="text" class="form-control" name="l_name" value="{{ old('l_name') }}" required>
                             </div>
                         </div>
 
                         {{--  Mobile  --}}
                         <div class="form-group row">
-                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('เบอร์โทรศัพท์') }}</label>
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('เบอร์โทรศัพท์') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="text" class="form-control" name="mobile" value="{{ old('mobile') }}" autofocus>
+                                <input id="mobile" type="text" class="form-control" name="mobile" value="{{ old('mobile') }}" required>
                             </div>
                         </div>
 
                         {{--  Department  --}}
                         <div class="form-group row">
-                            <label for="Department" class="col-md-4 col-form-label text-md-right">{{ __('แผนก') }}</label>
+                            <label for="Department" class="col-md-4 col-form-label text-md-right">{{ __('แผนก') }} <label style="color:red">*</label></label>
                             
                             <div class="col-md-6">
-                                <select id="department" class="form-control" name="department">
+                                <select id="department" class="form-control" name="department" required>
                                     <option value=""></option>
                                     @foreach ($department as $dept)
                                         <option value={{$dept}}>{{$dept}}</option>
@@ -82,10 +82,10 @@
 
                         {{--  Section  --}}
                         <div class="form-group row">
-                            <label for="section" class="col-md-4 col-form-label text-md-right">{{ __('ฝ่าย') }}</label>
+                            <label for="section" class="col-md-4 col-form-label text-md-right">{{ __('ฝ่าย') }} <label style="color:red">*</label></label>
                             
                             <div class="col-md-6">
-                                <select id="section" class="form-control" name="section">
+                                <select id="section" class="form-control" name="section" required>
                                     <option value=""></option>
                                     <option value="ฝ่ายบริหาร">ฝ่ายบริหาร</option>
                                     <option value="ฝ่ายการพยาบาล">ฝ่ายการพยาบาล</option>
@@ -97,10 +97,10 @@
 
                         {{--  Position  --}}
                         <div class="form-group row">
-                            <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('ตำแหน่ง') }}</label>
+                            <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('ตำแหน่ง') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
-                                <select id="position" class="form-control" name="position">
+                                <select id="position" class="form-control" name="position" required>
                                     <option value=""></option>
                                     @foreach ($position as $pos)
                                         <option value={{$pos}}>{{$pos}}</option>
@@ -141,7 +141,7 @@
 
                         {{--  password confirm  --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน') }} <label style="color:red">*</label></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
