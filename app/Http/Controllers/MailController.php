@@ -33,7 +33,6 @@ class MailController extends Controller
 
         $upd_form->commented = 'No';
         
-        
         $mng_email = User::where('department',$user_dept)->where('type',1)->get();
 
         if($mng_email->isEmpty()){

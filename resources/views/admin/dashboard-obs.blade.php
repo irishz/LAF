@@ -49,16 +49,20 @@
                         <td>{{ $observe->department }}</td>
                         <td>{{ $observe->number_date_leave }}</td>
                         <td>{{ $observe->date_leave }}</td>
-                        @if ($observe->approved == 1)
-                            <td>อนุมัติ</td>
-                        @elseif($observe->approved === 0)
-                            <td>ไม่อนุมัติ</td>
-                        @else
-                            <td>รอการอนุมัติ</td>
-                        @endif
+                    @if ($observe->approved == 1)
+                        <td>อนุมัติ</td>
+                    @elseif($observe->approved === 0)
+                        <td>ไม่อนุมัติ</td>
+                    @else
+                        <td>รอการอนุมัติ</td>
+                    @endif
                         <td>{{ $observe->approve_by }}</td>
                         <td>{{ $observe->approve_datetime }}</td>
+                    @if ($observe->user_id == Auth::user()->user_id)
+                        <td><a href="/form/{{ $observe->id }}/edit" class="btn btn-info disabled">Edit</a></td>
+                    @else
                         <td><a href="/form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
+                    @endif
                     </tr>
                 @endforeach
             </tbody>

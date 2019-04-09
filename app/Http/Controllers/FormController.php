@@ -68,11 +68,8 @@ class FormController extends Controller
         $form = Form::find($store->id);
         
         // send approve mail to approver
-        try{
-            $this->sendMail($user,$form);
-        }catch(Exception $e){
-            return $e;
-        }
+        $this->sendMail($user,$form);
+
         return redirect('home');
     }
 
