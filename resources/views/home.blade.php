@@ -31,7 +31,7 @@
                 <th scope="col">เลขที่ใบลา</th>
                 <th scope="col">รหัสพนักงาน</th>
                 <th scope="col">จำนวนวันลา</th>
-                <th scope="col">วันที่ลา</th>
+                <th scope="col">วันที่ขอลาหยุด</th>
                 <th scope="col">ผลการลา</th>
                 <th scope="col">อนุมัติโดย</th>
                 <th scope="col">วันที่อนุมัติ</th>
@@ -49,7 +49,7 @@
                         <th scope="row">{{ $form->id }}</th>
                         <td>{{ $form->user_id }}</td>
                         <td>{{ $form->number_date_leave }}</td>
-                        <td>{{ $form->created_at }}</td>
+                        <td>{{ $form->date_leave }}</td>
                         @if ($form->approved == 1)
                             <td>อนุมัติ</td>
                         @elseif($form->approved === 0)

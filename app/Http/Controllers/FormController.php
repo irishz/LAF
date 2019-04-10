@@ -86,11 +86,6 @@ class FormController extends Controller
             Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
             Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
         }
-        // Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
-        // Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
-        // Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
-        // Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
-        // Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
     }
 
     /**
