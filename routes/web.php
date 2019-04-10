@@ -36,3 +36,5 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::get('/approve/{form_id}/{user_dept}', 'MailController@SendApprove');
 Route::get('/not-approve/{form_id}/{user_dept}', 'MailController@SendNotApprove');
+Route::get('/approve-mng/{form_id}', 'MailController@SendMngApprove');
+Route::get('/not-approve-mng/{form_id}', 'MailController@SendMngNotApprove');

@@ -11,16 +11,17 @@ class SendApprove extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user,$form;
+    public $user,$form,$time;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user,$form)
+    public function __construct($user,$form,$time)
     {
         $this->user = $user;
         $this->form = $form;
+        $this->time = $time;
     }
 
     /**

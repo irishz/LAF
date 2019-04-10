@@ -8,7 +8,9 @@ use Carbon\Carbon;
 use App\Mail\SendResult;
 use App\Mail\SendRequest;
 use Illuminate\Http\File;
+use App\Mail\SendMngRequest;
 use Illuminate\Http\Request;
+use App\Mail\SendManagerRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -75,11 +77,20 @@ class FormController extends Controller
 
     public function sendMail($user,$form)
     {
+        if ($user->type == 1) {
+            Mail::to("wattana.bup@suksawathospital.com")->send(new SendMngRequest($user,$form));
+            Mail::to("wat_pt2000@yahoo.com")->send(new SendMngRequest($user,$form));
+        }else {
+            Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
+            Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
+            Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
+            Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
+        }
         // Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
         // Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
         // Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
         // Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
-        Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
+        // Mail::to("ssh.itd@suksawathospital.com")->send(new SendRequest($user,$form));
     }
 
     /**

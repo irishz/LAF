@@ -7,21 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendNotApprove extends Mailable
+class SendMngRequest extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $user,$form,$time;
+    
+    public $user,$form;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user,$form,$time)
+    public function __construct($user,$form)
     {
         $this->user = $user;
         $this->form = $form;
-        $this->time = $time;
     }
 
     /**
@@ -31,8 +30,8 @@ class SendNotApprove extends Mailable
      */
     public function build()
     {
-        $subject = '<Auto-Generate> Comment from CEO';
+        $subject = '<Auto-Generate> Approve leave application form';
 
-        return $this->subject($subject)->markdown('mail.send-not-approve');
+        return $this->subject($subject)->markdown('mail.send-mng-request');
     }
 }
