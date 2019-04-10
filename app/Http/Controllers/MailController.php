@@ -27,7 +27,9 @@ class MailController extends Controller
             return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
         }else{
             $upd_form->save();
-            return Mail::to($mng_email[0]['email'])->send(new SendApprove($users,$upd_form,$time));
+            Mail::to($mng_email[0]['email'])->send(new SendApprove($users,$upd_form,$time));
+
+            return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
         }
     }
 
@@ -44,7 +46,9 @@ class MailController extends Controller
             return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
         }else{
             $upd_form->save();
-            return Mail::to($mng_email[0]['email'])->send(new SendNotApprove($users,$upd_form,$time));
+            Mail::to($mng_email[0]['email'])->send(new SendNotApprove($users,$upd_form,$time));
+
+            return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
         }
     }
 

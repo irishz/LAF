@@ -22,15 +22,16 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">เลขที่ใบลา</th>
-                <th scope="col">รหัสพนักงาน</th>
-                <th scope="col">ชื่อผู้ลา</th>
-                <th scope="col">แผนก</th>
-                <th scope="col">จำนวนวันลา</th>
-                <th scope="col">ผลการลา</th>
-                <th scope="col">อนุมัติโดย</th>
-                <th scope="col">วันที่ลา</th>
-                <th scope="col">แก้ไข</th>
+                    <th scope="col">เลขที่ใบลา</th>
+                    <th scope="col">รหัสพนักงาน</th>
+                    <th scope="col">ชื่อผู้ลา</th>
+                    <th scope="col">แผนก</th>
+                    <th scope="col">จำนวนวันลา</th>
+                    <th scope="col">วันที่ลา</th>
+                    <th scope="col">ผลการลา</th>
+                    <th scope="col">อนุมัติโดย</th>
+                    <th scope="col">วันที่อนุมัติ</th>
+                    <th scope="col">แก้ไข</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +47,8 @@
                         <td>{{ $result->user_id }}</td>
                         <td>{{ $result->f_name.' '.$result->l_name }}</td>
                         <td>{{ $result->department }}</td>
-                        <td>{{ $result->number_date_leave }}</td>
+                        <td>{{ $result->number_date_leave }} วัน {{ $result->hour_date_leave }} ชั่วโมง</td>
+                        <td>{{ $result->date_leave }}</td>
                         @if ($result->approved == 1)
                             <td>อนุมัติ</td>
                         @elseif($result->approved === 0)
@@ -55,8 +57,12 @@
                             <td>รอการอนุมัติ</td>
                         @endif
                         <td>{{ $result->approve_by }}</td>
-                        <td>{{ $result->created_at }}</td>
-                        <td><a href="/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
+                        <td>{{ $result->approve_datetime }}</td>
+                        @if ($result->user_id == Auth::user()->user_id)
+                            <td><a href="admin/form/{{ $result->id }}/edit" class="btn btn-info disabled">Edit</a></td>
+                        @else
+                            <td><a href="admin/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
