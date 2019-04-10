@@ -47,7 +47,7 @@
                         <td>{{ $result->user_id }}</td>
                         <td>{{ $result->f_name.' '.$result->l_name }}</td>
                         <td>{{ $result->department }}</td>
-                        <td>{{ $result->number_date_leave }}</td>
+                        <td>{{ $result->number_date_leave }} วัน {{ $result->hour_date_leave }} ชั่วโมง</td>
                         <td>{{ $result->date_leave }}</td>
                         @if ($result->approved == 1)
                             <td>อนุมัติ</td>

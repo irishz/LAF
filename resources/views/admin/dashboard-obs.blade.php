@@ -47,7 +47,7 @@
                         <td>{{ $observe->user_id }}</td>
                         <td>{{ $observe->f_name.' '.$observe->l_name }}</td>
                         <td>{{ $observe->department }}</td>
-                        <td>{{ $observe->number_date_leave }}</td>
+                        <td>{{ $observe->number_date_leave }} วัน {{ $observe->hour_date_leave }} ชั่วโมง</td>
                         <td>{{ $observe->date_leave }}</td>
                     @if ($observe->approved == 1)
                         <td>อนุมัติ</td>

@@ -48,7 +48,7 @@
                     @endif
                         <th scope="row">{{ $form->id }}</th>
                         <td>{{ $form->user_id }}</td>
-                        <td>{{ $form->number_date_leave }}</td>
+                        <td>{{ $form->number_date_leave }} วัน {{ $form->hour_date_leave }} ชั่วโมง</td>
                         <td>{{ $form->date_leave }}</td>
                         @if ($form->approved == 1)
                             <td>อนุมัติ</td>

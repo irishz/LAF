@@ -51,6 +51,7 @@ class FormController extends Controller
         $store->leave_type = $request->leave_type;
         $store->leave_cause = $request->leave_cause;
         $store->number_date_leave = $request->number_date_leave;
+        $store->hour_date_leave = $request->hour_date_leave;
         $store->date_leave = $request->date_leave;
         $store->responsible_work = $request->responsible_work;
         

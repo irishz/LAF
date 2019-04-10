@@ -38,9 +38,17 @@
                     <label>อิ่นๆ</label>
                 </div>
                 <div class="form-group">
-                    <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>>
-                    <input class="form-control" type="number" step="0.5" id="number_date_leave" name="number_date_leave" required>
-                    <label>กรณีลาครึ่งวันให้กรอก "<b>0.5</b>"</label>
+                    <div class="row">
+                        <div class="col">
+                            <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>
+                            <input class="form-control" type="number" id="number_date_leave" name="number_date_leave" required>
+                            <label>กรณีลาครึ่งวันให้กรอก "<b>4 ชั่วโมง</b>"</label>
+                        </div>
+                        <div class="col">
+                            <label for="hour_date_leave">จำนวนชั่วโมงที่ลาหยุด</label>
+                            <input class="form-control" type="number" id="hour_date_leave" name="hour_date_leave" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="leave_cause">4. สาเหตุการลา</label>

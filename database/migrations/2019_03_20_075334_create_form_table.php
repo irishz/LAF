@@ -18,7 +18,8 @@ class CreateFormTable extends Migration
             $table->string('user_id');
             $table->string('leave_type')->nullable();
             $table->string('leave_cause')->nullable();
-            $table->float('number_date_leave')->nullable();
+            $table->integer('number_date_leave')->nullable();
+            $table->integer('hour_date_leave')->nullable();
             $table->datetime('date_leave')->nullable();
             $table->string('commented')->nullable();
             $table->boolean('approved')->nullable();
