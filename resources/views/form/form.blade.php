@@ -41,12 +41,12 @@
                     <div class="row">
                         <div class="col">
                             <label for="number_date_leave">3. จำนวนวันที่ลาหยุด</label>
-                            <input class="form-control" type="number" id="number_date_leave" name="number_date_leave" required>
+                            <input class="form-control" type="number" value="0" id="number_date_leave" name="number_date_leave" required>
                             <label>กรณีลาครึ่งวันให้กรอก "<b>4 ชั่วโมง</b>"</label>
                         </div>
                         <div class="col">
                             <label for="hour_date_leave">จำนวนชั่วโมงที่ลาหยุด</label>
-                            <input class="form-control" type="number" id="hour_date_leave" name="hour_date_leave" required>
+                            <input class="form-control" type="number" value="0" id="hour_date_leave" name="hour_date_leave" required>
                         </div>
                     </div>
                 </div>
