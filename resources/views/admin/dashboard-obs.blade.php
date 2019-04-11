@@ -59,9 +59,9 @@
                         <td>{{ $observe->approve_by }}</td>
                         <td>{{ $observe->approve_datetime }}</td>
                     @if ($observe->user_id == Auth::user()->user_id)
-                        <td><a href="admin/form/{{ $observe->id }}/edit" class="btn btn-info disabled">Edit</a></td>
+                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info disabled">Edit</a></td>
                     @else
-                        <td><a href="admin/form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
+                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
                     @endif
                     </tr>
                 @endforeach

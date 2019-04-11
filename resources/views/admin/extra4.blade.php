@@ -59,9 +59,9 @@
                         <td>{{ $result->approve_by }}</td>
                         <td>{{ $result->approve_datetime }}</td>
                         @if ($result->user_id == Auth::user()->user_id)
-                            <td><a href="admin/form/{{ $result->id }}/edit" class="btn btn-info disabled">Edit</a></td>
+                            <td><a href="form/{{ $result->id }}/edit" class="btn btn-info disabled">Edit</a></td>
                         @else
-                            <td><a href="admin/form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
+                            <td><a href="form/{{ $result->id }}/edit" class="btn btn-info">Edit</a></td>
                         @endif
                     </tr>
                 @endforeach
