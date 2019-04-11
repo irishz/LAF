@@ -4,7 +4,7 @@
     อนุมัติ ใบลาเลขที่ {{ $form->id }} ของ {{ $user->f_name }} ณ วันที่ {{ $time }}
 </pre>
 
-@component('mail::button', ['url' => 'http://leave.ddns.net:8001/admin/form/'.$form->id.'/edit',],['method'=>'GET'])
+@component('mail::button', ['url' => 'http://leave.ddns.net:8001/form/'.$form->id.'/edit',],['method'=>'GET'])
 ไปยังหน้าอนุมัติ
 @endcomponent
 

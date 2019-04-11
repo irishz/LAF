@@ -4,7 +4,7 @@
     ไม่อนุญาตให้อนุมัติ ใบลาเลขที่ {{ $form->id }} ของ {{ $user->f_name }} ณ วันที่ {{ $time }}
 </pre>
 
-@component('mail::button',['url'=>'http://leave.ddns.net:8001/admin/form/'.$form->id.'/edit'])
+@component('mail::button',['url'=>'http://leave.ddns.net:8001/form/'.$form->id.'/edit'])
 ไปยังหน้าอนุมัติ
 @endcomponent
 
