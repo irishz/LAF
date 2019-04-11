@@ -14,7 +14,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <form method="POST" action="form/{{ $id }}">
+            <form method="POST" action="/admin/form/{{ $id }}">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
                 <div class="row">

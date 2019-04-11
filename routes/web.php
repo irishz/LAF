@@ -26,14 +26,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@show');
     Route::get('/form', 'FormController@index');
     Route::post('/form', 'FormController@store');
-    Route::patch('/form/{id}', 'FormController@update');
 });
 
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware' => ['admin']], function(){
-        Route::get('/form/{id}/edit', 'FormController@edit');
         Route::get('/dashboard', 'admin\AdminController@index');
+        Route::get('/form/{id}/edit', 'FormController@edit');
+        Route::patch('/form/{id}', 'FormController@update');
     });
 });
 
