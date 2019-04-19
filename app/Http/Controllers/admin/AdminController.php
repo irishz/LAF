@@ -14,7 +14,7 @@ class AdminController extends Controller
         
         $manager_dept = Auth::user()->department;
 
-
+        // for observer view (CEO&HR)
         if (Auth::user()->user_id == '0005401111' | Auth::user()->user_id == '0226003131' | Auth::user()->user_id == '1111') {
             $observes = DB::table('users')
             ->join('form', 'users.user_id', '=', 'form.user_id')
