@@ -45,7 +45,7 @@ class AdminController extends Controller
                 
                     return view('admin/extra2',compact('results'));
                     break;
-                //p'pawinee IPD2-5,icu,lnd,ord
+                //p'pawinee IPD2-5+icu+lnd+ord
                 case '1175404561':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
@@ -67,6 +67,17 @@ class AdminController extends Controller
                     ->get();
     
                     return view('admin/extra4',compact('results'));
+                    break;
+                //p'aom(acc) sam
+                case '0085402141':
+                    $results = DB::table('users')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->select('users.*','form.*')
+                    // depend on department
+                    ->whereIn('users.department',array('ฝ่ายขายและการตลาด'))
+                    ->get();
+    
+                    return view('admin/extra5',compact('results'));
                     break;
                 //else
                 default:
