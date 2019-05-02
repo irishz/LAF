@@ -88,7 +88,14 @@
                                 <select id="section" class="form-control" name="section" required>
                                     <option value=""></option>
                                     <option value="ฝ่ายบริหาร">ฝ่ายบริหาร</option>
+                                    <option value="ฝ่ายการบัญชี - การเงิน">ฝ่ายการบัญชี - การเงิน</option>
+                                    <option value="ฝ่ายบริหารทรัพยากรบุคคล">ฝ่ายบริหารทรัพยากรบุคคล</option>
+                                    <option value="ศูนย์คอมพิวเตอร์">ศูนย์คอมพิวเตอร์</option>
                                     <option value="ฝ่ายการพยาบาล">ฝ่ายการพยาบาล</option>
+                                    <option value="ฝ่ายประกันและลูกค้าสัมพันธ์">ฝ่ายประกันและลูกค้าสัมพันธ์</option>
+                                    <option value="ฝ่ายขายและการตลาด">ฝ่ายขายและการตลาด</option>
+                                    <option value="ฝ่ายจัดซื้อ - พัสดุ">ฝ่ายจัดซื้อ - พัสดุ</option>
+                                    <option value="ฝ่ายบริการส่วนหน้า">ฝ่ายบริการส่วนหน้า</option>
                                     <option value="ฝ่ายสนับสนุนการแพทย์">ฝ่ายสนับสนุนการแพทย์</option>
                                     <option value="ฝ่ายสนับสนุนทั่วไป">ฝ่ายสนับสนุนทั่วไป</option>
                                 </select>

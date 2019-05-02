@@ -71,6 +71,10 @@ class MailController extends Controller
                 Mail::to('orrathai2012@hotmail.co.th')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
+            case 'แผนกทันตกรรม':
+                Mail::to('sherry_nit_b2@hotmail.co.th')->send(new SendApprove($users,$upd_form,$time));
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                break;
             default:
                 if($mng_email->isEmpty()){
                     return ('แผนกนี้ยังไม่มีหัวหน้าหน่วยงานในระบบ');
@@ -140,6 +144,10 @@ class MailController extends Controller
             case 'ฝ่ายขายและการตลาด':
                 Mail::to('orrathai2012@hotmail.co.th')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                break;
+            case 'แผนกทันตกรรม':
+                Mail::to('sherry_nit_b2@hotmail.co.th')->send(new SendNotApprove($users,$upd_form,$time));
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             default:
                 if($mng_email->isEmpty()){
