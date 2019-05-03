@@ -170,7 +170,7 @@ class MailController extends Controller
         
         $form->save();
 
-        return redirect('/form'.'/'.$form_id.'/edit');
+        return redirect('admin/form'.'/'.$form_id.'/edit');
     }
 
     public function SendMngNotApprove($form_id){
@@ -181,7 +181,7 @@ class MailController extends Controller
         
         $form->save();
 
-        return redirect('/form'.'/'.$form_id.'/edit');
+        return redirect('admin/form'.'/'.$form_id.'/edit');
     }
     
 }
