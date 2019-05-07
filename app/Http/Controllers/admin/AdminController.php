@@ -79,6 +79,17 @@ class AdminController extends Controller
     
                     return view('admin/extra5',compact('results'));
                     break;
+                //p'tak(mrd) sam
+                case '3196110381':
+                    $results = DB::table('users')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->select('users.*','form.*')
+                    // depend on department
+                    ->whereIn('users.department',array('แผนกเวชระเบียนและเวชสถิติ'))
+                    ->get();
+    
+                    return view('admin/extra5',compact('results'));
+                    break;
                 //else
                 default:
                     $results = DB::table('users')

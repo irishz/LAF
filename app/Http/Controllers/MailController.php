@@ -28,7 +28,7 @@ class MailController extends Controller
         switch ($users->department){
             case 'ศูนย์คอมพิวเตอร์':
                 Mail::to('nattaya_puy2522@hotmail.com')->send(new SendApprove($users,$upd_form,$time));
-                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                return ยedirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกผู้ป่วยนอก(ประกันสังคม)':
                 Mail::to('pikula06@gmail.com')->send(new SendApprove($users,$upd_form,$time));
@@ -73,6 +73,10 @@ class MailController extends Controller
                 break;
             case 'แผนกทันตกรรม':
                 Mail::to('sherry_nit_b2@hotmail.co.th')->send(new SendApprove($users,$upd_form,$time));
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                break;
+            case 'แผนกเวชระเบียนและเวชสถิติ':
+                Mail::to('atcharatoktak@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             default:
@@ -147,6 +151,10 @@ class MailController extends Controller
                 break;
             case 'แผนกทันตกรรม':
                 Mail::to('sherry_nit_b2@hotmail.co.th')->send(new SendNotApprove($users,$upd_form,$time));
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                break;
+            case 'แผนกเวชระเบียนและเวชสถิติ':
+                Mail::to('atcharatoktak@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             default:
