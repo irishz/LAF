@@ -7,6 +7,12 @@
             <div class="card">
                 <div class="card-header">{{ __('เข้าสู่ระบบ') }}</div>
 
+                @if (session('status'))
+                    <div class="alert alert-danger">
+                        {{ session('status') }}
+                    </div>
+                @endif 
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

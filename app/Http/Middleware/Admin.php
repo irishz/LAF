@@ -19,7 +19,9 @@ class Admin
         if( Auth::check() && Auth::user()->isAdmin() ) {
             return $next($request);
         } else {
-            abort(403, 'Unauthorized action.');
+            $message = 'คุณไม่มีสิทธิในการเข้าถึงหน้านี้ กรุณาล็อกอินด้วยบัญชีที่มีสิทธิเท่านั้น';
+            // abort(403, 'Unauthorized action.');
+            return redirect('login')->with('status', $message);
         }
     }
 }
