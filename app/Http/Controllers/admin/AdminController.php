@@ -26,7 +26,7 @@ class AdminController extends Controller
                 //P'PUY acc+itd
                 case '0025401131':
                     $results = DB::table('users')
-                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->join('form', 'users.user_iยd', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกบัญชี','ศูนย์คอมพิวเตอร์'))
@@ -68,7 +68,7 @@ class AdminController extends Controller
     
                     return view('admin/extra4',compact('results'));
                     break;
-                //p'aom(acc) sam
+                //p'aom(acc)->sam
                 case '0085402141':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
@@ -79,13 +79,24 @@ class AdminController extends Controller
     
                     return view('admin/extra5',compact('results'));
                     break;
-                //p'tak(mrd) sam
+                //p'tak mrd
                 case '3196110381':
                     $results = DB::table('users')
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกเวชระเบียนและเวชสถิติ'))
+                    ->get();
+    
+                    return view('admin/extra5',compact('results'));
+                    break;
+                //p'tung(acc)->sam
+                case '0095402181':
+                    $results = DB::table('users')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->select('users.*','form.*')
+                    // depend on departmentย
+                    ->whereIn('users.department',array('แผนกจัดซื้อ-พัสดุ'))
                     ->get();
     
                     return view('admin/extra5',compact('results'));
