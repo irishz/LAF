@@ -52,11 +52,15 @@ class MailController extends Controller
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกห้องผ่าตัด':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('evezaa66@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยVIPชั้น5':
                 Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                break;
+            case 'หอผู้ป่วยหนัก':
+                Mail::to('evezaa66@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกซ่อมบำรุง':

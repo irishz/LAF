@@ -51,8 +51,8 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
-                    ->whereIn('users.department',array('หอผู้ป่วยหนัก','หอผู้ป่วยในชั้น2','หอผู้ป่วยในชั้น3',
-                    'หอผู้ป่วยในชั้น4','หอผู้ป่วยVIPชั้น5','แผนกห้องคลอดและทารกแรกเกิด','แผนกห้องผ่าตัด'))
+                    ->whereIn('users.department',array('หอผู้ป่วยในชั้น2','หอผู้ป่วยในชั้น3',
+                    'หอผู้ป่วยในชั้น4','หอผู้ป่วยVIPชั้น5','แผนกห้องคลอดและทารกแรกเกิด'))
                     ->get();
     
                     return view('admin/extra3',compact('results'));
@@ -97,6 +97,28 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on departmentย
                     ->whereIn('users.department',array('แผนกจัดซื้อ-พัสดุ'))
+                    ->get();
+    
+                    return view('admin/extra5',compact('results'));
+                    break;
+                //p'tung(acc)->sam
+                case '0095402181':
+                    $results = DB::table('users')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->select('users.*','form.*')
+                    // depend on departmentย
+                    ->whereIn('users.department',array('แผนกจัดซื้อ-พัสดุ'))
+                    ->get();
+    
+                    return view('admin/extra5',compact('results'));
+                    break;
+                //p'nok(are)->icu,or
+                case '0276004151':
+                    $results = DB::table('users')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
+                    ->select('users.*','form.*')
+                    // depend on departmentย
+                    ->whereIn('users.department',array('หอผู้ป่วยหนัก','แผนกห้องผ่าตัด'))
                     ->get();
     
                     return view('admin/extra5',compact('results'));
