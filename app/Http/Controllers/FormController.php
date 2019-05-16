@@ -43,6 +43,22 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'date_leave' => 'required',
+            'leave_type' => 'required',
+            'number_date_leave' => 'required',
+            'hour_date_leave' => 'required',
+            'leave_cause' => 'required',
+            'responsible_work' => 'required'
+        ],[
+            'date_leave.required' => 'กรุณาใส่วันที่ขอลาหยุด',
+            'leave_type.required' => 'กรุณาระบุประเภทการลา',
+            'number_date_leave.required' => 'กรุณาใส่จำนวนวันที่ขอลาหยุด',
+            'hour_date_leave.required' => 'กรุณาใส่จำนวนชั่วโมงวันที่ขอลาหยุด',
+            'leave_cause.required' => 'กรุณาใส่เหตุผลที่ขอลาหยุด',
+            'responsible_work.required' => 'กรุณาใส่ผู้รับผิดชอบงานแทน',
+        ]);
+
         $user_id = Auth::user()->user_id;
         $user = User::find($user_id);
 
@@ -85,9 +101,9 @@ class FormController extends Controller
         }else {
             Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
             Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
-            Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
-            Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
-            Mail::to("test@suksawathospital.com")->send(new SendRequest($user,$form));
+            // Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
+            // Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));
+            // Mail::to("test@suksawathospital.com")->send(new SendRequest($user,$form));
         }
     }
 
@@ -102,7 +118,7 @@ class FormController extends Controller
         $forms = Form::find($id);
         $users = User::find($forms->user_id);
 
-        return view('form.edit',compact('id','forms','users'));
+        return view('form.edit',compact('id','forms','users','something'));
     }
 
     /**
