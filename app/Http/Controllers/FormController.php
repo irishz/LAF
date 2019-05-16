@@ -118,7 +118,7 @@ class FormController extends Controller
         $forms = Form::find($id);
         $users = User::find($forms->user_id);
 
-        return view('form.edit',compact('id','forms','users','something'));
+        return view('form.edit',compact('id','forms','users'));
     }
 
     /**
