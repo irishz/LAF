@@ -18,7 +18,8 @@ class AdminController extends Controller
         if (Auth::user()->user_id == '0005401111' | Auth::user()->user_id == '0226003131' | Auth::user()->user_id == '1111') {
             $observes = DB::table('users')
             ->join('form', 'users.user_id', '=', 'form.user_id')
-            ->select('users.*','form.*')->get();
+            ->select('users.*','form.*')
+            ->orderBy('form.created_at','desc')->get();
 
             return view('admin/dashboard-obs',compact('observes'));
         }else {
@@ -30,6 +31,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกบัญชี','ศูนย์คอมพิวเตอร์'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra1',compact('results'));
@@ -41,6 +43,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกผู้ป่วยนอก(ประกันสังคม)','แผนกบริการปฐมภูมิ'))
+                    ->orderBy('created_at','desc')
                     ->get();
                 
                     return view('admin/extra2',compact('results'));
@@ -53,6 +56,7 @@ class AdminController extends Controller
                     // depend on department
                     ->whereIn('users.department',array('หอผู้ป่วยในชั้น2','หอผู้ป่วยในชั้น3',
                     'หอผู้ป่วยในชั้น4','หอผู้ป่วยVIPชั้น5','แผนกห้องคลอดและทารกแรกเกิด'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra3',compact('results'));
@@ -64,6 +68,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกรับส่งผู้ป่วย','หน่วยรปภ','แผนกซ่อมบำรุง'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra4',compact('results'));
@@ -75,6 +80,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('ฝ่ายขายและการตลาด'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra5',compact('results'));
@@ -86,6 +92,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกเวชระเบียนและเวชสถิติ'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra5',compact('results'));
@@ -97,6 +104,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on departmentย
                     ->whereIn('users.department',array('แผนกจัดซื้อ-พัสดุ'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra5',compact('results'));
@@ -108,6 +116,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on departmentย
                     ->whereIn('users.department',array('แผนกจัดซื้อ-พัสดุ'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra5',compact('results'));
@@ -119,6 +128,7 @@ class AdminController extends Controller
                     ->select('users.*','form.*')
                     // depend on departmentย
                     ->whereIn('users.department',array('หอผู้ป่วยหนัก','แผนกห้องผ่าตัด'))
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/extra5',compact('results'));
@@ -129,6 +139,7 @@ class AdminController extends Controller
                     ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     ->where('users.department','=',Auth::user()->department)
+                    ->orderBy('created_at','desc')
                     ->get();
     
                     return view('admin/dashboard',compact('results'));
