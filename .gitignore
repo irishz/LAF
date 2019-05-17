@@ -23,3 +23,10 @@ resources/views/mail/send-mngnot-approve.blade.php
 resources/views/mail/send-not-approve.blade.php
 resources/views/mail/send-request.blade.php
 resources/views/mail/send-result.blade.php
+resources/views/mail/send-result.blade.php
+resources/views/mail/send-request.blade.php
+resources/views/mail/send-not-approve.blade.php
+resources/views/mail/send-mngnot-approve.blade.php
+resources/views/mail/send-mng-request.blade.php
+resources/views/mail/send-mng-approve.blade.php
+resources/views/mail/send-approve.blade.php
