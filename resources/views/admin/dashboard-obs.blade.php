@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <table class="table">
+        <table id="table_id" class="table table-striped table-hover table-sm" cellspacing="0" width="100%">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">เลขที่ใบลา</th>
@@ -59,14 +59,15 @@
                         <td>{{ $observe->approve_by }}</td>
                         <td>{{ $observe->approve_datetime }}</td>
                     @if ($observe->user_id == Auth::user()->user_id)
-                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info disabled">Edit</a></td>
+                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info disabled rounded">Edit</a></td>
                     @else
-                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info">Edit</a></td>
+                        <td><a href="form/{{ $observe->id }}/edit" class="btn btn-info rounded">Edit</a></td>
                     @endif
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <div>{{ $observes->links() }}</div>
     </div>
 </div>
 @endsection
