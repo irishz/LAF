@@ -28,7 +28,7 @@ class MailController extends Controller
         switch ($users->department){
             case 'ศูนย์คอมพิวเตอร์':
                 Mail::to('nattaya_puy2522@hotmail.com')->send(new SendApprove($users,$upd_form,$time));
-                return ยedirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
+                return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกผู้ป่วยนอก(ประกันสังคม)':
                 Mail::to('pikula06@gmail.com')->send(new SendApprove($users,$upd_form,$time));
@@ -39,16 +39,16 @@ class MailController extends Controller
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยในชั้น2':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'หอผู้ป่วยในชั้น3':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'หอผู้ป่วยในชั้น4':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'แผนกห้องคลอดและทารกแรกเกิด':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกห้องผ่าตัด':
@@ -56,7 +56,7 @@ class MailController extends Controller
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยVIPชั้น5':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยหนัก':
@@ -125,24 +125,24 @@ class MailController extends Controller
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยในชั้น2':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'หอผู้ป่วยในชั้น3':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'หอผู้ป่วยในชั้น4':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
             case 'แผนกห้องคลอดและทารกแรกเกิด':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกห้องผ่าตัด':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'หอผู้ป่วยVIPชั้น5':
-                Mail::to('ssh.icu.m@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
+                Mail::to('pavineenu16@gmail.com')->send(new SendNotApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','ไม่อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกซ่อมบำรุง':
