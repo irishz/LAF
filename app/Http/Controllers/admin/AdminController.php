@@ -29,7 +29,7 @@ class AdminController extends Controller
                 //P'PUY acc+itd
                 case '0025401131':
                     $results = DB::table('users')
-                    ->join('form', 'users.user_ipd', '=', 'form.user_id')
+                    ->join('form', 'users.user_id', '=', 'form.user_id')
                     ->select('users.*','form.*')
                     // depend on department
                     ->whereIn('users.department',array('แผนกบัญชี','ศูนย์คอมพิวเตอร์'))
