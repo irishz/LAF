@@ -53,7 +53,7 @@
                 {{--  approve  --}}
                 <div class="form-group">
                     <label for="approve">อนุมัติ</label><br>
-                @if($forms->commented === null)
+                @if($forms->commented === null || $users->type == 0)
                     <select id="approve" class="form-control" name="approve" disabled>
                         <option value="1">อนุมัติ</option>
                         <option value="0">ไม่อนุมัติ</option>
