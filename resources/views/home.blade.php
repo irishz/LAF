@@ -59,6 +59,8 @@
                         @endif
                         <td>{{ $form->approve_by }}</td>
                         <td>{{ $form->approve_datetime }}</td>
+                        <td><a href="form/{{ $form->id }}/edit" class="btn btn-info">Edit</a></td>
+                        <td><a onclick="return confirm('คุณต้องการลบใบลานี้หรือไม่?')" href="form/{{ $form->id }}/delete" class="btn btn-danger">Delete</a></td>
                     </tr>
                 @endforeach
             </tbody>

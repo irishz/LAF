@@ -27,13 +27,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@show');
     Route::get('/form', 'FormController@index');
     Route::post('/form', 'FormController@store');
+    Route::get('/form/{id}/edit', 'FormController@edit');
+    Route::get('/form/{id}/delete', 'FormController@destroy');
 });
 
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware' => ['admin']], function(){
         Route::get('/dashboard', 'admin\AdminController@index');
-        Route::get('/form/{id}/edit', 'FormController@edit');
+        // Route::get('/form/{id}/edit', 'FormController@edit');
         Route::patch('/form/{id}', 'FormController@update');
     });
 });
