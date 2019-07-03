@@ -99,7 +99,7 @@ class FormController extends Controller
             Mail::to("wat_pt2000@yahoo.com")->send(new SendMngRequest($user,$form));
             Mail::to("test@suksawathospital.com")->send(new SendMngRequest($user,$form));
         }else {
-            Mail::to("sherry_nit_b2@hotmail.co.th")->send(new SendRequest($user,$form));
+            Mail::to("ssh.hr003@gmail.com")->send(new SendRequest($user,$form));
             Mail::to("ssh.hrd@suksawathospital.com")->send(new SendRequest($user,$form));
             Mail::to("wattana.bup@suksawathospital.com")->send(new SendRequest($user,$form));
             Mail::to("wat_pt2000@yahoo.com")->send(new SendRequest($user,$form));

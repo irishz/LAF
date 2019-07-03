@@ -76,7 +76,7 @@ class MailController extends Controller
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกทันตกรรม':
-                Mail::to('sherry_nit_b2@hotmail.co.th')->send(new SendApprove($users,$upd_form,$time));
+                Mail::to('kasja.090@gmail.com')->send(new SendApprove($users,$upd_form,$time));
                 return redirect('/result')->with('alert','อนุมัติ ใบลาเลขที่'.$upd_form->id);
                 break;
             case 'แผนกเวชระเบียนและเวชสถิติ':
