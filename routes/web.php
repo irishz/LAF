@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/dashboard', 'admin\AdminController@index');
         Route::get('/form/{id}/edit', 'FormController@edit');
         Route::patch('/form/{id}', 'FormController@update');
+        Route::get('/export', 'admin\AdminController@export');
     });
 });
 

@@ -69,5 +69,6 @@
         </table>
         <div>{{ $observes->links() }}</div>
     </div>
+    <a href="{{ url('/admin/export') }}" class="btn btn-success rounded">Export</a><br>
 </div>
 @endsection

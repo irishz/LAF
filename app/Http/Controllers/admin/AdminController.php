@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -147,6 +149,16 @@ class AdminController extends Controller
                     return view('admin/dashboard',compact('results'));
             }
         }
+    }
+
+    public function export(){
+        $observes = DB::table('users')
+            ->join('form', 'users.user_id', '=', 'form.user_id')
+            ->select('users.prename','users.f_name','users.l_name','users.position','users.department','users.section','users.email','form.*')
+            ->orderBy('form.created_at','desc')
+            ->get()->toArray();
+
+        return Excel::download(new UserExport,'form.xlsx');
     }
 
 }
